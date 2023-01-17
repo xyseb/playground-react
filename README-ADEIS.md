@@ -19,3 +19,4 @@ The main goal is to dev a simple usecase using React Context API + Webpack
 - [create-react-app.dev](https://create-react-app.dev/docs/)
 - [reactjs.org](https://reactjs.org/docs/)
 - [KendoUI](https://www.telerik.com/kendo-react-ui)
+- [redux with rtk](https://redux.js.org/introduction/installation#create-a-react-redux-app)
