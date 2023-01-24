@@ -1,5 +1,4 @@
-import { HTMLAttributes, Dispatch, SetStateAction, PropsWithChildren, FunctionComponent, ReactNode, createContext, useState, useEffect } from "react";
-import { timeout } from "workbox-core/_private";
+import { HTMLAttributes, FunctionComponent, ReactNode, createContext, useState, useEffect } from "react";
 
 export interface ICentre
 {
@@ -10,7 +9,7 @@ export interface ICentre
 export type CentreContextType = {
   centre: ICentre
   loading: boolean
-  loadCentreName: (nom: string) => void
+  loadCentreName: () => void
   loadCentreParams: (params: {}) => void
 };
 
@@ -68,35 +67,14 @@ const CentreContextProvider: FunctionComponent<CentreContextProviderProps> = ({ 
     setTimeout(() => setLoading(false), 3000);
   }
 
-  // const putCentreParams = async (pName:string, pValue:any) => {
-  //   setLoading(true);
-  //   await fetch('http://localhost:8080/params', {
-  //       method: 'PUT',
-  //       headers: {'Content-Type': 'application/json'},
-  //       body: JSON.stringify()
-  //    })
-  //   .then(response => {
-  //       if (!response.ok) {
-  //           throw Error(response.statusText);
-  //       }
-  //       return response.json();
-  //   })
-  //   .then(data => setCentre({Nom: centre.Nom, Params: data.params}))
-  //   .catch(error => console.log(error));
-  //   // console.log('centre from loadCentreParams');
-  //   // console.log(centre);
-
-  //   setTimeout(() => setLoading(false), 3000);
-  // }
-
-  useEffect(() => {
-    console.log('in useEffect');
-    if (centre.Nom === undefined)
-    {
-      loadCentreName();
-      // console.log('end useEffect');
-    }
-  }, []);
+  // useEffect(() => {
+  //   console.log('in useEffect');
+  //   if (centre.Nom === undefined)
+  //   {
+  //     loadCentreName();
+  //     // console.log('end useEffect');
+  //   }
+  // }, []);
 
   return (
     <CentreContext.Provider value={{centre, loading, loadCentreName, loadCentreParams}}>

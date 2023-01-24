@@ -1,29 +1,22 @@
-.App {
+.app {
   text-align: center;
-  background-color: dimgrey;
+  background-color: whitesmoke;
   height: 100vh;
-}
 
-header {
-  margin-bottom: 20px;
-  background-color: darkslategray;
-  padding: 15px;
-}
-
-.nav {
-  color: cadetblue;
-  padding: 0 10px;
-
-  &.is-active {
-    color: gray;
+  header {
+    background-color: darkslategray;
+    padding: 15px;
+    .nav {
+      color: cadetblue;
+      text-transform: uppercase;
+      font-size: 1.4em;
+      font-weight: 500;
+      padding: 0 10px;
+  
+      &.is-active {
+        color: gray;
+      }
+    }
   }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

@@ -4,8 +4,8 @@ import './NotFoundPage.scss';
 
 function NotFoundPage() {
   return (
-    <div className="NotFoundPage">
-        <p>404: Page not found</p>
+    <div className="notFoundPage">
+        <h1>404: Page not found</h1>
     </div>
   );
 }
