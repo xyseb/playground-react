@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './Centre.scss';
 
 import { CentreContext, CentreContextType } from '../../../../contexts/CentreContextProvider';
 
 function Centre() {
-  const { centre } = useContext(CentreContext) as CentreContextType;
+  const { centre, loadCentreName } = useContext(CentreContext) as CentreContextType;
   const centreNameElement = (centre.Nom === undefined)
         ? <h3 className='default'>State CentreContext.Nom = "undefined"</h3>
         : <h3>State CentreContext.Nom = "{centre.Nom}"</h3>;
@@ -18,6 +18,14 @@ function Centre() {
     centreParamElement = <ul>{centreNameElementChildren}</ul>;
   }
 
+  useEffect(() => {
+      console.log('in useEffect');
+      if (centre.Nom === undefined)
+      {
+        loadCentreName();
+        // console.log('end useEffect');
+      }
+    }, []);
 
   return (
     <div className="centre">
