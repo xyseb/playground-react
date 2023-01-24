@@ -6,7 +6,7 @@ import ButtonGetCentre from './ButtonGetCentre/ButtonGetCentre';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
 function CentreContextPage() {
-  
+   
     return (
         <div className="CentreContextPage">
             <LoadingSpinner/>
