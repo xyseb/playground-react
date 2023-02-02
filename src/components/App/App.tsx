@@ -19,10 +19,10 @@ function App() {
         <nav>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/home"><span>HOME</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/ctx"><span>CTX</span></NavLink>
-          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/redux"><span>REDUX</span></NavLink>
+          {/* <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/redux"><span>REDUX</span></NavLink> */}
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/rtk"><span>RTK</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/kui"><span>KUI</span></NavLink>
-          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/404"><span>404</span></NavLink>
+          {/* <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/404"><span>404</span></NavLink> */}
         </nav>
       </header>
       <Provider store={rtkStore}>
@@ -33,10 +33,10 @@ function App() {
               <Route path="/home" element={<HomePage/>}/>
             </Route>
             <Route path="/ctx" element={<CentreContextPage/>}/>
-            <Route path="/redux" element={<NotFoundPage/>}/>
+            {/* <Route path="/redux" element={<NotFoundPage/>}/> */}
             <Route path="/rtk" element={<RtkStorePage/>}/>
             <Route path="/kui" element={<NotFoundPage/>}/>
-            <Route path="/404" element={<NotFoundPage/>}/>
+            {/* <Route path="/404" element={<NotFoundPage/>}/> */}
           </Routes>
         </section>    
         </CentreContextProvider>
