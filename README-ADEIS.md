@@ -13,6 +13,7 @@ The main goal is to dev a simple usecase using React Context API + Webpack
 1. `npx create-react-app my-app --template cra-template-pwa-typescript`
 2. `npm install -D sass`
 3. `npm install react-router-dom`
+4. `npm install @reduxjs/toolkit`
 
 # Documention:
 - [create-react-app.dev](https://create-react-app.dev/docs/)
