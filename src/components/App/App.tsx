@@ -8,8 +8,8 @@ import NotFoundPage from '../Pages/NotFoundPage/NotFoundPage';
 import RtkStorePage from '../Pages/RtkStorePage/RtkStorePage';
 import CentreContextProvider from '../../contexts/CentreContextProvider';
 
-import { rtkStore } from '../../stores/store'
-import { Provider } from 'react-redux'
+// import { rtkStore } from '../../stores/store'
+// import { Provider } from 'react-redux'
 
 function App() {
   
@@ -17,15 +17,14 @@ function App() {
     <main className="app">
       <header>
         <nav>
-          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/home"><span>HOME</span></NavLink>
-          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/ctx"><span>CTX</span></NavLink>
-          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/redux"><span>REDUX</span></NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/home"><span>Home</span></NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/ctx"><span>Context</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/rtk"><span>RTK</span></NavLink>
-          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/kui"><span>KUI</span></NavLink>
-          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/404"><span>404</span></NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/rtk"><span>RTK-Query</span></NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/kui"><span>Kendo-UI</span></NavLink>
         </nav>
       </header>
-      <Provider store={rtkStore}>
+      {/* <Provider store={rtkStore}> */}
         <CentreContextProvider>
         <section>
           <Routes>
@@ -40,7 +39,7 @@ function App() {
           </Routes>
         </section>    
         </CentreContextProvider>
-      </Provider>
+      {/* </Provider> */}
     </main>
   );
 }

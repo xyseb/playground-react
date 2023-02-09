@@ -1,11 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { CentreContext, CentreContextType } from '../../../contexts/CentreContextProvider';
 import './HomePage.scss';
 
-import { RootState } from '../../../stores/store';
-import { useSelector, useDispatch } from 'react-redux'
+//import { RootState } from '../../../stores/store';
+//import { useSelector, useDispatch } from 'react-redux'
+import { useCentreSelector } from '../../../redux/api/CentreNameApiSlice'
+//import { IApiCentre } from '../../../data/types'
+
 
 function HomePage() {
+
+  // Context relative
   const { centre } = useContext(CentreContext) as CentreContextType;
   const centreNameElement = (centre.Nom === undefined)
         ? <h3 className='default'>State CentreContext.Nom = "undefined"</h3>
@@ -14,14 +19,19 @@ function HomePage() {
         ? <h3 className='default'>State CentreContext.Params = "undefined"</h3>
         : <h3>State CentreContext.Params = "chargés"</h3>;
 
-  const storeCentre = useSelector((state: RootState) => state.centre)
+
+  // Store relative
+  // const storeCentre = useSelector((state: RootState) => state.centre);
+  //const [Centre, setCentre] = useState();
+
+//  const storeCentre = useCentreSelector(Centre);
 ///  const storeCentreParams = useSelector((state: RootState) => state.centre.Params)
-  const rtkStoreCentreNameElement = (storeCentre.Nom === undefined)
-        ? <h3 className='default'>State RtkStore.Nom = "undefined"</h3>
-        : <h3>State de RtkStore.Nom = "{storeCentre.Nom}"</h3>;
-  const rtkStoreCentreParamsElement = (storeCentre.Params === undefined)
-        ? <h3 className='default'>State RtkStore.Params = "undefined"</h3>
-        : <h3>State RtkStore.Params = "chargés"</h3>;
+  // const rtkStoreCentreNameElement = (storeCentre.Nom === undefined)
+  //       ? <h3 className='default'>State RtkStore.Nom = "undefined"</h3>
+  //       : <h3>State de RtkStore.Nom = "{storeCentre.Nom}"</h3>;
+  // const rtkStoreCentreParamsElement = (storeCentre.Params === undefined)
+  //       ? <h3 className='default'>State RtkStore.Params = "undefined"</h3>
+  //       : <h3>State RtkStore.Params = "chargés"</h3>;
 
   return (
     <div className="homepage">
@@ -33,8 +43,8 @@ function HomePage() {
       <h1>RTK Store</h1>
       <p>Pas de requêtes d'API depuis ce composant. Uniquement lecture du store RTK.
         <br/>Valeur par défaut explicite si le store n'est pas chargé. Valeur du state du store si chargé.</p>
-      {rtkStoreCentreNameElement}
-      {rtkStoreCentreParamsElement}
+      {/* {rtkStoreCentreNameElement} */}
+      {/* {rtkStoreCentreParamsElement} */}
     </div>
   );
 }

@@ -1,9 +1,5 @@
-import { createSlice, createSelector, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit'
-import { client } from '../../../../redux/api/client'
+import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-
-const centreAdapter = createEntityAdapter()
-
 
 export interface ICentre
 {
@@ -11,25 +7,11 @@ export interface ICentre
     Params?: {};
 };
 
-const initialState: ICentre = centreAdapter.getInitialState({
+
+const initialState: ICentre = {
   Nom: undefined,
   Params: undefined
-})
-
-// const initialState: ICentre = {
-//   Nom: undefined,
-//   Params: undefined
-// }
-
-// Thunk functions
-export const fetchCentreName = createAsyncThunk('centre/fetchName', async () => {
-  const response = await client.get('/centre');
-  return response.Nom;
-})
-export const fetchCentreParams = createAsyncThunk('params/fetchParams', async () => {
-  const response = await client.get('/params');
-  return response.Nom;
-})
+}
 
 export const centreSlice = createSlice({
   name: 'centre',
@@ -77,15 +59,8 @@ export const centreSlice = createSlice({
           // console.log(centre);
           return state;
           //}
-    }
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchCentreName.pending, (state, action) => {})
-      .addCase(fetchCentreName.fulfilled, (state, action) => {})
-      .addCase(fetchCentreParams.pending, (state, action) => {})
-      .addCase(fetchCentreParams.fulfilled, (state, action) => {})
-  }
+      }
+    },
 })
 
 const loadCentreName = async (state: any) => {

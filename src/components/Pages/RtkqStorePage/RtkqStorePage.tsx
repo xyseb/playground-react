@@ -1,11 +1,11 @@
 // import React, { useState, useEffect, useCallback, useMemo, useContext } from 'react';
-// import './RtkStorePage.scss';
+// import './RtkqStorePage.scss';
 
 // import Centre from './Centre/Centre';
 // import ButtonGetCentre from './ButtonGetCentre/ButtonGetCentre';
 // import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
-// function RtkStorePage() {
+// function RtkqStorePage() {
 
 //     useEffect(() => {
 //         console.log('in useEffect');
@@ -25,9 +25,9 @@
 //     );
 // }
 
-// export default RtkStorePage;
+// export default RtkqStorePage;
 import React, { useState, useEffect, useCallback, useMemo, useContext } from 'react';
-import './RtkStorePage.scss';
+import './RtkqStorePage.scss';
 
 // import { useGetCentreNameQuery, useGetCentreParamsQuery } from '../../../redux/api/jsonServerApi';
 
@@ -35,7 +35,7 @@ import Centre from './Centre/Centre';
 import ButtonGetCentre from './ButtonGetCentre/ButtonGetCentre';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
-function RtkStorePage() {
+function RtkqStorePage() {
     // const {
     //     data: centre = [],
     //     isLoading,
@@ -63,4 +63,4 @@ function RtkStorePage() {
     );
 }
 
-export default RtkStorePage;
+export default RtkqStorePage;

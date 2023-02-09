@@ -3,12 +3,12 @@ import { CentreContext } from '../../contexts/CentreContextProvider';
 import './LoadingSpinner.scss';
 
 
-function LoadingSpinner() {
+function LoadingSpinner(props: any) {
     const centre = useContext(CentreContext)
 
     return (
         <>
-        {centre && centre.loading && (
+        {props.isReduxLoading || centre && centre.loading && (
             <div className="loading-spinner-overlay">
                 <div className="center">
                     <div className="wave"></div>
