@@ -12608,11 +12608,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\0_WS\\git\\mono-intranet-nt\\packages\\api\\api.csproj",
+      "projectUniqueName": "E:\\0_WS\\git\\rearchtypes_latest\\src\\api\\api.csproj",
       "projectName": "api",
-      "projectPath": "E:\\0_WS\\git\\mono-intranet-nt\\packages\\api\\api.csproj",
+      "projectPath": "E:\\0_WS\\git\\rearchtypes_latest\\src\\api\\api.csproj",
       "packagesPath": "C:\\Users\\sebastien\\.nuget\\packages\\",
-      "outputPath": "E:\\0_WS\\git\\mono-intranet-nt\\packages\\api\\obj\\",
+      "outputPath": "E:\\0_WS\\git\\rearchtypes_latest\\src\\api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

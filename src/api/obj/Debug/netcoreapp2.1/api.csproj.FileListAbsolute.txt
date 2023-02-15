@@ -26,3 +26,17 @@ E:\0_WS\git\mono-intranet-nt\packages\api\obj\Debug\netcoreapp2.1\api.AssemblyIn
 E:\0_WS\git\mono-intranet-nt\packages\api\obj\Debug\netcoreapp2.1\api.RazorTargetAssemblyInfo.cache
 E:\0_WS\git\mono-intranet-nt\packages\api\obj\Debug\netcoreapp2.1\api.dll
 E:\0_WS\git\mono-intranet-nt\packages\api\obj\Debug\netcoreapp2.1\api.pdb
+E:\0_WS\git\rearchtypes_latest\src\api\bin\Debug\netcoreapp2.1\api.deps.json
+E:\0_WS\git\rearchtypes_latest\src\api\bin\Debug\netcoreapp2.1\api.runtimeconfig.json
+E:\0_WS\git\rearchtypes_latest\src\api\bin\Debug\netcoreapp2.1\api.runtimeconfig.dev.json
+E:\0_WS\git\rearchtypes_latest\src\api\bin\Debug\netcoreapp2.1\api.dll
+E:\0_WS\git\rearchtypes_latest\src\api\bin\Debug\netcoreapp2.1\api.pdb
+E:\0_WS\git\rearchtypes_latest\src\api\obj\Debug\netcoreapp2.1\api.csprojAssemblyReference.cache
+E:\0_WS\git\rearchtypes_latest\src\api\obj\Debug\netcoreapp2.1\api.csproj.CoreCompileInputs.cache
+E:\0_WS\git\rearchtypes_latest\src\api\obj\Debug\netcoreapp2.1\api.RazorAssemblyInfo.cache
+E:\0_WS\git\rearchtypes_latest\src\api\obj\Debug\netcoreapp2.1\api.RazorAssemblyInfo.cs
+E:\0_WS\git\rearchtypes_latest\src\api\obj\Debug\netcoreapp2.1\api.AssemblyInfoInputs.cache
+E:\0_WS\git\rearchtypes_latest\src\api\obj\Debug\netcoreapp2.1\api.AssemblyInfo.cs
+E:\0_WS\git\rearchtypes_latest\src\api\obj\Debug\netcoreapp2.1\api.RazorTargetAssemblyInfo.cache
+E:\0_WS\git\rearchtypes_latest\src\api\obj\Debug\netcoreapp2.1\api.dll
+E:\0_WS\git\rearchtypes_latest\src\api\obj\Debug\netcoreapp2.1\api.pdb
