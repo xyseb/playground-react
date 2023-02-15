@@ -25,6 +25,7 @@ The main goal is to dev a simple usecase using React Context API + Webpack
     (INFO) Kendo UI: License imported successfully.
 3. `npm install react-router-dom`
 #4. `npm install @reduxjs/toolkit react-redux`
+100. `npm install -D json-server`
 
 # Documention:
 - [create-react-app.dev](https://create-react-app.dev/docs/)

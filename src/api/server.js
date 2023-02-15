@@ -1,0 +1,1 @@
+console.error('To run API, run the `npm start`.');
