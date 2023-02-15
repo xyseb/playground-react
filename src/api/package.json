@@ -1,0 +1,12 @@
+{
+  "name": "@adeis/api",
+  "version": "0.0.0",
+  "description": "api",
+  "author": "Sebastien Deschamps",
+  "homepage": "",
+  "license": "ISC",
+  "main": "server.js",
+  "scripts": {
+    "start": "dotnet watch run -warn:0 -v quiet environment=Development kestrelonly=true"
+  }
+}
