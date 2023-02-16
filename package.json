@@ -36,7 +36,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "data": "npx json-server --port 8080 ./src/data/centre.json"
+    "data": "npx json-server --port 8080 ./src/data/centre.json",
+    "api": "powershell cd .\\src\\api\\; npm run start"
   },
   "eslintConfig": {
     "extends": [
