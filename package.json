@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "data": "npx json-server --port 8080 ./src/data/centre.json",
+    "api": "powershell cd .\\src\\api\\; npm run start"
   },
   "dependencies": {
     "@redux-devtools/core": "^3.13.1",
