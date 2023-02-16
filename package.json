@@ -23,7 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "data": "npx json-server --port 8080 ./src/data/centre.json",
+    "api": "powershell cd .\\src\\api\\; npm run start"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "json-server": "^0.17.1",
     "sass": "^1.57.1"
   }
 }

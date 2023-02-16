@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = dotnet2.1-api
+build_property.ProjectDir = c:\Users\Sebastien Deschamps\Desktop\mono-intranet-nt\packages\api\
