@@ -1,4 +1,7 @@
 import React from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+
 import './App.scss';
 import { Routes, Route, NavLink } from 'react-router-dom';
 
@@ -11,6 +14,17 @@ import CentreContextProvider from '../../contexts/CentreContextProvider';
 import { rtkStore } from '../../stores/RtkStore'
 import { Provider } from 'react-redux'
 
+import ReactQueryPage from '../Pages/ReactQueryPage/ReactQueryPage';
+
+const isDev = (process.env.NODE_ENV === 'development') ? true : false;
+const queryClient = new QueryClient({ 
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: !isDev
+    }
+  }
+})
+
 function App() {
   
   return (
@@ -21,10 +35,12 @@ function App() {
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/ctx"><span>CTX</span></NavLink>
           {/* <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/redux"><span>REDUX</span></NavLink> */}
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/rtk"><span>RTK</span></NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/rq"><span>RQ</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/kui"><span>KUI</span></NavLink>
           {/* <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/404"><span>404</span></NavLink> */}
         </nav>
       </header>
+      <QueryClientProvider client={queryClient}>
       <Provider store={rtkStore}>
         <CentreContextProvider>
         <section>
@@ -35,12 +51,15 @@ function App() {
             <Route path="/ctx" element={<CentreContextPage/>}/>
             {/* <Route path="/redux" element={<NotFoundPage/>}/> */}
             <Route path="/rtk" element={<RtkStorePage/>}/>
+            <Route path="/rq" element={<ReactQueryPage/>}/>
             <Route path="/kui" element={<NotFoundPage/>}/>
             {/* <Route path="/404" element={<NotFoundPage/>}/> */}
           </Routes>
         </section>    
         </CentreContextProvider>
       </Provider>
+      <ReactQueryDevtools initialIsOpen={isDev} />
+      </QueryClientProvider>
     </main>
   );
 }
