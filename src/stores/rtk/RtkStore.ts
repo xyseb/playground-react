@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import centreReducer from '../components/Pages/RtkStorePage/Centre/CentreSlice'
+import centreReducer from '../../components/Pages/RtkStorePage/Centre/CentreSlice'
 
 export const rtkStore = configureStore({
   reducer: {

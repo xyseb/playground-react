@@ -3,7 +3,7 @@ import { CentreContextClass, CentreContextClassType } from '../../../contextsCla
 // Import de la feuille de style *si nécessaire*
 import './HomePageClass.scss';
 
-import { RootState } from '../../../stores/RtkStore';
+import { RootState } from '../../../stores/rtk/RtkStore';
 import { useSelector, useDispatch } from 'react-redux'
 
 /**

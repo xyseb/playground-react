@@ -14,6 +14,7 @@ The main goal is to dev a simple usecase using React Context API + Webpack
 2. `npm install -D sass`
 3. `npm install react-router-dom`
 4. `npm install @reduxjs/toolkit react-redux`
+4. `npm install redux`
 
 # Documention:
 - [create-react-app.dev](https://create-react-app.dev/docs/)

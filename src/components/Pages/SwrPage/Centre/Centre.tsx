@@ -1,39 +1,53 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useQuery } from 'react-query';
 import './Centre.scss';
 
+import useSWR, { useSWRConfig } from 'swr';
+import LoadingSpinner from '../../../LoadingSpinner/LoadingSpinner';
+import ErrorBoundary from '../../../ErrorBoundary/ErrorBoundary.js';
+import { ICentre } from '../../../../contexts/CentreContextProvider';
+
+
+
+// function getCentreName () {
+//   const resource:string = 'http://localhost:8080/centre';
+
+//   const init:{} = {
+//     method: 'GET',
+//     headers: new Headers([
+//       ['Content-Type', 'application/json'],
+//       ['Accept', 'application/json']
+//     ]),
+//     mode: 'cors',
+//     cache: 'default'
+//   };
+//   return (resource:string, init:{}) => fetch(resource, init).then(res => res.json());
+// }
+
+// function CentreName {
+//   return (
+//   );
+// }
+// type CentreName =
+// {
+//     Name: string;
+// };
+
 function Centre() {
 
-  const [loading, setLoading] = useState(false);
-  //const [enabledQuery, setEnabledQuery] = useState(false);
-//  const [centre, setCentre] = useState({Name: undefined})
-//  const [params, setParams] = useState({Params: undefined})
-
-
-  //const queryClient = useQueryClient();
-  const { isLoading: loadingCentre, error: errorCentre, data: centreData } = useQuery(
-    'centre',
-    () => fetch('http://localhost:8080/centre').then(res => res.json()),
-    { staleTime: 60000, }
-  );
-
-  //const centre = centreData || { Name: undefined };
-
-console.log(centreData);
-console.log(loadingCentre);
-console.log(errorCentre);
-
-  //const toggleBoolean = (bool: boolean) => { return setEnabledQuery(!bool); };
-
-  const { isLoading: loadingParams, error: errorParams, data: paramsData, isFetching: isCentreFetching,  refetch } = useQuery('centreParams', () =>
-  fetch('http://localhost:8080/params').then(res =>
-    res.json()
-  ), { enabled: false });
-
-  //const params = paramsData || { Params: undefined };
-
-  // Rerender si requete retourner
+  const { cache } = useSWRConfig();
+  //const fetcher = (url:string) => fetch(url).then(res => res.json());
+  //const fetcher = (resource:string, init:{}) => fetch(resource, init).then(res => res.json());
+  // const { data: centreData, error, isLoading, isValidating, mutate } = useSWR('centre', getCentreName(), { suspense: true});
+  const { data: centreData, error, isLoading, isValidating, mutate } = useSWR('http://localhost:8080/centre', { });
   
+  const { data: paramsData, error: errorParams, isLoading: isLoadingParams, isValidating: isValidatingParams, mutate: mutateParams } = useSWR('http://localhost:8080/params', { });
+
+
+// console.log(paramsData);
+// console.log(isLoadingParams);
+// console.log(errorParams);
+
 
   const centreNameElement = (centreData === undefined || centreData.name === undefined)
         ? <h3 className='default'>State CentreContext.Nom = "undefined"</h3>
@@ -64,11 +78,11 @@ console.log(errorCentre);
     // }
   }, []);
 
-  if (loadingCentre) return <>React Query Loading...</>;
+  if (isLoading) return <>React Query Loading...</>;
 
-  if (errorCentre) return <>An error has occurred: + error.message</>;
+  if (error) return <>An error has occurred: + error.message</>;
 
-  if (loadingParams) return <>React Query Loading...</>;
+  if (isLoadingParams) return <>React Query Loading...</>;
 
   if (errorParams) return <>An error has occurred: + error.message</>;
 
@@ -79,8 +93,12 @@ console.log(errorCentre);
         <h1>Centre.State.Nom</h1>
         <p>Requêtes d'API /centre depuis ce composant au <i>componentDidMount()</i> (via hook useEffect).
           <br/>Valeur par défaut explicite si le state du centre, synchonisé depuis le store, n'est pas chargé. Valeur du state du centre si chargé.</p>
-        {isCentreFetching && <div className="loader">Loading...</div>}
-        {centreNameElement}
+        {/* <ErrorBoundary fallback={<h2>Could not fetch posts.</h2>}>
+          <Suspense fallback={<LoadingSpinner/>}> */}
+            {/* <CentreName /> */}
+            {centreNameElement}
+          {/* </Suspense>
+        </ErrorBoundary> */}
         <h1>CentreContext.Params</h1>
         <p>Pas de requêtes d'API depuis ce composant au <i>componentDidMount()</i> (via hook useEffect).
           <br />Requêtes d'API /params depuis le composant bouton.

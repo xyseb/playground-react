@@ -17,6 +17,8 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
+    "redux": "^4.2.1",
+    "swr": "^2.0.3",
     "typescript": "^4.9.4",
     "web-vitals": "^2.1.4",
     "workbox-background-sync": "^6.5.4",
@@ -37,8 +39,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "data": "npx json-server --port 8080 ./src/data/centre.json",
-    "api": "powershell cd .\\src\\api\\; npm run start"
+    "data": "npx json-server --port 8080 ./src/apis/data/centre.json",
+    "api": "powershell cd .\\src\\apis\\api\\; npm run start"
   },
   "eslintConfig": {
     "extends": [

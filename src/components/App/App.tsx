@@ -11,10 +11,12 @@ import NotFoundPage from '../Pages/NotFoundPage/NotFoundPage';
 import RtkStorePage from '../Pages/RtkStorePage/RtkStorePage';
 import CentreContextProvider from '../../contexts/CentreContextProvider';
 
-import { rtkStore } from '../../stores/RtkStore'
+import { rtkStore } from '../../stores/rtk/RtkStore'
 import { Provider } from 'react-redux'
 
 import ReactQueryPage from '../Pages/ReactQueryPage/ReactQueryPage';
+import { SWRConfig } from 'swr';
+import SwrPage from '../Pages/SwrPage/SwrPage';
 
 const isDev = (process.env.NODE_ENV === 'development') ? true : false;
 const queryClient = new QueryClient({ 
@@ -33,13 +35,15 @@ function App() {
         <nav>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/home"><span>HOME</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/ctx"><span>CTX</span></NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/rq"><span>RQ</span></NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/swr"><span>SWR</span></NavLink>
           {/* <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/redux"><span>REDUX</span></NavLink> */}
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/rtk"><span>RTK</span></NavLink>
-          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/rq"><span>RQ</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/kui"><span>KUI</span></NavLink>
           {/* <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/404"><span>404</span></NavLink> */}
         </nav>
       </header>
+      <SWRConfig value={{ provider: () => new Map(), fetcher: (url:string) => fetch(url).then(res => res.json()) }}>
       <QueryClientProvider client={queryClient}>
       <Provider store={rtkStore}>
         <CentreContextProvider>
@@ -52,6 +56,7 @@ function App() {
             {/* <Route path="/redux" element={<NotFoundPage/>}/> */}
             <Route path="/rtk" element={<RtkStorePage/>}/>
             <Route path="/rq" element={<ReactQueryPage/>}/>
+            <Route path="/swr" element={<SwrPage/>}/>
             <Route path="/kui" element={<NotFoundPage/>}/>
             {/* <Route path="/404" element={<NotFoundPage/>}/> */}
           </Routes>
@@ -60,6 +65,7 @@ function App() {
       </Provider>
       <ReactQueryDevtools initialIsOpen={isDev} />
       </QueryClientProvider>
+      </SWRConfig>
     </main>
   );
 }

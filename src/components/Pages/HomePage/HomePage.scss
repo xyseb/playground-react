@@ -1,13 +1,35 @@
 .homepage {
-    padding: 20px 10px;
+    width: 100%;
     background-color: black;
     min-height: 100vh;
-    color:white;
-    h1 {color: cadetblue; text-decoration: underline;}
-    h3 {
-        color: forestgreen;
-        &.default {
-            color: lightgrey;
+
+    .homepage-header {
+        background-color: black;
+        color:white;
+        margin:0;
+        padding:10px;
+    }
+    .homepage-parts {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px 10px;
+        color:white;
+        
+        > div {
+            width: 300px;
+            border: 1px solid grey;
+            padding: 10px;
+            margin: 10px;
+  
+            h3 {color: cadetblue; text-decoration: underline;}
+            h5 {
+                color: forestgreen;
+                &.default {
+                    color: rgb(164, 189, 155);
+                }
+            }
         }
     }    
 }
