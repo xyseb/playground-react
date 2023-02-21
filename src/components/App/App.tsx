@@ -11,6 +11,7 @@ import NotFoundPage from '../Pages/NotFoundPage/NotFoundPage';
 import RtkStorePage from '../Pages/RtkStorePage/RtkStorePage';
 import CentreContextProvider from '../../contexts/CentreContextProvider';
 
+import { reduxStore } from '../../stores/redux/ReduxStore'
 import { rtkStore } from '../../stores/rtk/RtkStore'
 import { Provider } from 'react-redux'
 
