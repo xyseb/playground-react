@@ -8,7 +8,7 @@ import NotFoundPage from '../Pages/NotFoundPage/NotFoundPage';
 import ReduxStorePage from '../Pages/ReduxStorePage/ReduxStorePage';
 import RtkStorePage from '../Pages/RtkStorePage/RtkStorePage';
 
-import { reduxStore } from '../../stores/redux/ReduxStore'
+import reduxStore from '../../stores/redux/ReduxStore'
 import { Provider } from 'react-redux'
 
 

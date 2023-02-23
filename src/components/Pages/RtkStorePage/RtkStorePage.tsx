@@ -31,13 +31,11 @@ import './RtkStorePage.scss';
 
 import Centre from './Centre/Centre';
 import ButtonGetCentre from './ButtonGetCentre/ButtonGetCentre';
-import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
 function RtkStorePage() {
     
     return (
         <div className="CentreContextPage">
-            <LoadingSpinner/>
             <Centre />
             <ButtonGetCentre />
         </div>

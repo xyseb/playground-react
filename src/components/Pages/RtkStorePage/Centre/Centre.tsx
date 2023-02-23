@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Centre.scss';
 
-import { RootState } from '../../../../stores/rtk/RtkStore';
+//import { RootState } from '../../../../stores/rtk/RtkStore';
+type RootState = {centre: {name:string, params:[]}};
 import { useSelector, useDispatch } from 'react-redux'
 import { getNom, getParams } from './CentreSlice'
 

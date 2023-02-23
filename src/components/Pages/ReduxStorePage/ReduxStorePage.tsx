@@ -31,13 +31,11 @@ import './ReduxStorePage.scss';
 
 import Centre from './Centre/Centre';
 import ButtonGetCentre from './ButtonGetCentre/ButtonGetCentre';
-import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
 function ReduxStorePage() {
     
     return (
         <div className="CentreContextPage">
-            <LoadingSpinner/>
             <Centre />
             <ButtonGetCentre />
         </div>
