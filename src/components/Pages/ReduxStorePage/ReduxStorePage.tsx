@@ -1,15 +1,15 @@
 // import React, { useState, useEffect, useCallback, useMemo, useContext } from 'react';
-// import './RtkStorePage.scss';
+// import './ReduxStorePage.scss';
 
 // import Centre from './Centre/Centre';
 // import ButtonGetCentre from './ButtonGetCentre/ButtonGetCentre';
 // import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
-// function RtkStorePage() {
+// function ReduxStorePage() {
 
 //     useEffect(() => {
 //         console.log('in useEffect');
-//         if (state.Nom === undefined)
+//         if (state.name === undefined)
 //         {
 //           // console.log('end useEffect');
 //           loadCentreName();
@@ -25,7 +25,7 @@
 //     );
 // }
 
-// export default RtkStorePage;
+// export default ReduxStorePage;
 import React, { useState, useEffect, useCallback, useMemo, useContext } from 'react';
 import './ReduxStorePage.scss';
 
@@ -33,7 +33,7 @@ import Centre from './Centre/Centre';
 import ButtonGetCentre from './ButtonGetCentre/ButtonGetCentre';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
-function RtkStorePage() {
+function ReduxStorePage() {
     
     return (
         <div className="CentreContextPage">
@@ -44,4 +44,4 @@ function RtkStorePage() {
     );
 }
 
-export default RtkStorePage;
+export default ReduxStorePage;

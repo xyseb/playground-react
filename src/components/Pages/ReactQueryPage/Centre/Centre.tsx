@@ -6,8 +6,8 @@ function Centre() {
 
   const [loading, setLoading] = useState(false);
   //const [enabledQuery, setEnabledQuery] = useState(false);
-//  const [centre, setCentre] = useState({Name: undefined})
-//  const [params, setParams] = useState({Params: undefined})
+//  const [centre, setCentre] = useState({name: undefined})
+//  const [params, setParams] = useState({params: undefined})
 
 
   //const queryClient = useQueryClient();
@@ -36,8 +36,8 @@ console.log(errorCentre);
   
 
   const centreNameElement = (centreData === undefined || centreData.name === undefined)
-        ? <h3 className='default'>State CentreContext.Nom = "undefined"</h3>
-        : <h3>State CentreContext.Nom = "{centreData.name}"</h3>;
+        ? <h3 className='default'>State CentreContext.name = "undefined"</h3>
+        : <h3>State CentreContext.name = "{centreData.name}"</h3>;
 
   let centreParamElement, centreNameElementChildren
   if (paramsData === undefined || paramsData.params === undefined) {
@@ -51,7 +51,7 @@ console.log(errorCentre);
 
   useEffect(() => {
     console.log('in useEffect');
-    // if (centre.Name === undefined)
+    // if (centre.name === undefined)
     // {
     //   setLoading(true);
 
@@ -76,12 +76,12 @@ console.log(errorCentre);
   return (
     <>
       <div className="centre">
-        <h1>Centre.State.Nom</h1>
+        <h1>Centre.State.name</h1>
         <p>Requêtes d'API /centre depuis ce composant au <i>componentDidMount()</i> (via hook useEffect).
           <br/>Valeur par défaut explicite si le state du centre, synchonisé depuis le store, n'est pas chargé. Valeur du state du centre si chargé.</p>
         {isCentreFetching && <div className="loader">Loading...</div>}
         {centreNameElement}
-        <h1>CentreContext.Params</h1>
+        <h1>CentreContext.params</h1>
         <p>Pas de requêtes d'API depuis ce composant au <i>componentDidMount()</i> (via hook useEffect).
           <br />Requêtes d'API /params depuis le composant bouton.
           <br/>Valeur par défaut explicite si le state du centre, synchonisé depuis le store, n'est pas chargé. Valeur du state du centre si chargé.</p>

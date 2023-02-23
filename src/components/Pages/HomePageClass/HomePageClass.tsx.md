@@ -27,21 +27,21 @@ export default class HomePageClass extends React.PureComponent<IHomePageClassOwn
     {
         const { centre, loadCentreName } = this.context as CentreContextClassType;
 
-        const centreNameElement = (centre.Nom === undefined)
-              ? <h3 className='default'>State CentreContext.Nom = "undefined"</h3>
-              : <h3>State de CentreContext.Nom = "{centre.Nom}"</h3>;
-        const centreParamsElement = (centre.Params === undefined)
-              ? <h3 className='default'>State CentreContext.Params = "undefined"</h3>
-              : <h3>State CentreContext.Params = "chargés"</h3>;
+        const centreNameElement = (centre.name === undefined)
+              ? <h3 className='default'>State CentreContext.name = "undefined"</h3>
+              : <h3>State de CentreContext.name = "{centre.name}"</h3>;
+        const centreParamsElement = (centre.params === undefined)
+              ? <h3 className='default'>State CentreContext.params = "undefined"</h3>
+              : <h3>State CentreContext.params = "chargés"</h3>;
 
         const storeCentre = useSelector((state: RootState) => state.centre)
-        ///  const storeCentreParams = useSelector((state: RootState) => state.centre.Params)
-        const rtkStoreCentreNameElement = (storeCentre.Nom === undefined)
-              ? <h3 className='default'>State RtkStore.Nom = "undefined"</h3>
-              : <h3>State de RtkStore.Nom = "{storeCentre.Nom}"</h3>;
-        const rtkStoreCentreParamsElement = (storeCentre.Params === undefined)
-              ? <h3 className='default'>State RtkStore.Params = "undefined"</h3>
-              : <h3>State RtkStore.Params = "chargés"</h3>;
+        ///  const storeCentreParams = useSelector((state: RootState) => state.centre.params)
+        const rtkStoreCentreNameElement = (storeCentre.name === undefined)
+              ? <h3 className='default'>State RtkStore.name = "undefined"</h3>
+              : <h3>State de RtkStore.name = "{storeCentre.name}"</h3>;
+        const rtkStoreCentreParamsElement = (storeCentre.params === undefined)
+              ? <h3 className='default'>State RtkStore.params = "undefined"</h3>
+              : <h3>State RtkStore.params = "chargés"</h3>;
 
         return (
             <div className="homepageclass">

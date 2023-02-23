@@ -2,8 +2,8 @@ import { HTMLAttributes, FunctionComponent, ReactNode, createContext, useState, 
 
 export interface ICentre
 {
-    Nom?: string;
-    Params?: {};
+    name?: string;
+    params?: {};
 };
 
 export type CentreContextType = {
@@ -24,8 +24,8 @@ interface CentreContextProviderProps extends HTMLAttributes<Element> {
 const CentreContextProvider: FunctionComponent<CentreContextProviderProps> = ({ children, ...props }) => {
 
   const centreStateDefault: ICentre = {
-    Nom: undefined,
-    Params: undefined
+    name: undefined,
+    params: undefined
   };
 
   // the value that will be given to the context
@@ -42,7 +42,7 @@ const CentreContextProvider: FunctionComponent<CentreContextProviderProps> = ({ 
         }
         return response.json();
     })
-    .then(data => setCentre({Nom: data.name, Params: (centre.Params !== undefined) ? centre.Params : undefined}))
+    .then(data => setCentre({name: data.name, params: (centre.params !== undefined) ? centre.params : undefined}))
     .catch(error => console.log(error));
     // console.log('centre from loadCentreName');
     // console.log(centre);
@@ -59,7 +59,7 @@ const CentreContextProvider: FunctionComponent<CentreContextProviderProps> = ({ 
         }
         return response.json();
     })
-    .then(data => setCentre({Nom: centre.Nom, Params: data.params}))
+    .then(data => setCentre({name: centre.name, params: data.params}))
     .catch(error => console.log(error));
     // console.log('centre from loadCentreParams');
     // console.log(centre);
@@ -69,7 +69,7 @@ const CentreContextProvider: FunctionComponent<CentreContextProviderProps> = ({ 
 
   // useEffect(() => {
   //   console.log('in useEffect');
-  //   if (centre.Nom === undefined)
+  //   if (centre.name === undefined)
   //   {
   //     loadCentreName();
   //     // console.log('end useEffect');

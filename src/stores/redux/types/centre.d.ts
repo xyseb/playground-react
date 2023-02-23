@@ -1,17 +1,17 @@
 type CentreName = string
 type CentreParam = {
-    Name: string,
-    Value: string
+    name: string,
+    value: string
 }
 type CentreParams = Array<CentreParam>
 
 // declare interface CentreDataSet {
-//     Name: CentreName,
-//     Params: CentreParams
+//     name: CentreName,
+//     params: CentreParams
 // }
 declare interface CentreNameDataSet {
-    Name: CentreName
+    name: CentreName
 }
 declare interface CentreParamsDataSet {
-    Params: CentreParams
+    params: CentreParams
 }

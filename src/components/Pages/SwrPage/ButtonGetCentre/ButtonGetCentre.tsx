@@ -26,7 +26,7 @@ console.log(error);
   //   res.json()
   // ), { enabled: enabledQuery });
 
-  //const centre = data || { Name: undefined, Params: undefined };
+  //const centre = data || { name: undefined, params: undefined };
 
 
   return (

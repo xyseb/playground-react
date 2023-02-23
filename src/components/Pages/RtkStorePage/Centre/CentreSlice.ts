@@ -3,14 +3,14 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface ICentre
 {
-    Nom?: string;
-    Params?: {};
+    name?: string;
+    params?: {};
 };
 
 
 const initialState: ICentre = {
-  Nom: undefined,
-  Params: undefined
+  name: undefined,
+  params: undefined
 }
 
 export const centreSlice = createSlice({
@@ -31,7 +31,7 @@ export const centreSlice = createSlice({
     //         }
     //         return response.json();
     //     })
-    //     .then(data => state.Nom = data.name)
+    //     .then(data => state.name = data.name)
     //     .catch(error => console.log(error));
     //     // console.log('centre from getNom');
     //     // console.log(centre);
@@ -53,7 +53,7 @@ export const centreSlice = createSlice({
               }
               return response.json();
           })
-          .then(data => state.Params = state.Params)
+          .then(data => state.params = state.params)
           .catch(error => console.log(error));
           // console.log('centre from getNom');
           // console.log(centre);
@@ -71,7 +71,7 @@ const loadCentreName = async (state: any) => {
         }
         return response.json();
     })
-    .then(data => state.Nom = data.name)
+    .then(data => state.name = data.name)
     .catch(error => console.log(error));
       // console.log('centre from getNom');
       // console.log(centre);
@@ -105,13 +105,13 @@ export default centreSlice.reducer
 
 // export interface ICentre
 // {
-//     Nom?: string;
-//     Params?: {};
+//     name?: string;
+//     params?: {};
 // };
 
 // const initialState: ICentre = centreAdapter.getInitialState<ICentre>({
-//   Nom: undefined,
-//   Params: undefined
+//   name: undefined,
+//   params: undefined
 // })
 
 
@@ -121,11 +121,11 @@ export default centreSlice.reducer
 // // Thunk functions
 // export const fetchNomCentre = createAsyncThunk('centre/fetchName', async () => {
 //   const response = await client.get('/centre')
-//   return response.Nom
+//   return response.name
 // })
 // export const fetchParamsCentre = createAsyncThunk('centre/fetchName', async () => {
 //   const response = await client.get('/centre')
-//   return response.Nom
+//   return response.name
 // })
 
 // export const saveNewTodo = createAsyncThunk('todos/saveNewTodo', async text => {

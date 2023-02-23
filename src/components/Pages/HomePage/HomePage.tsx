@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { CentreContext, CentreContextType } from '../../../contexts/CentreContextProvider';
 import './HomePage.scss';
 
+//import { RootState } from '../../../stores/redux/ReduxStore';
 import { RootState } from '../../../stores/rtk/RtkStore';
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -12,12 +13,12 @@ function HomePage() {
   // Context
   const { centre } = useContext(CentreContext) as CentreContextType;
 
-  const centreNameElement = (centre.Nom === undefined)
-        ? <h5 className='default'>CentreContext.Nom = "undefined"</h5>
-        : <h5>State de CentreContext.Nom = "{centre.Nom}"</h5>;
-  const centreParamsElement = (centre.Params === undefined)
-        ? <h5 className='default'>CentreContext.Params = "undefined"</h5>
-        : <h5>State CentreContext.Params = "chargés"</h5>;
+  const centreNameElement = (centre.name === undefined)
+        ? <h5 className='default'>CentreContext.name = "undefined"</h5>
+        : <h5>State de CentreContext.name = "{centre.name}"</h5>;
+  const centreParamsElement = (centre.params === undefined)
+        ? <h5 className='default'>CentreContext.params = "undefined"</h5>
+        : <h5>State CentreContext.params = "chargés"</h5>;
 
 
   // SWR
@@ -26,11 +27,11 @@ function HomePage() {
   const swrParams = cache.get('http://localhost:8080/params')?.data.params;
 
   const swrCentreNameElement = (swrName === undefined)
-        ? <h5 className='default'>SWC Cache de Centre.Nom = "undefined"</h5>
-        : <h5>State de CentreContext.Nom = "{swrName}"</h5>;
+        ? <h5 className='default'>SWC Cache de Centre.name = "undefined"</h5>
+        : <h5>State de CentreContext.name = "{swrName}"</h5>;
   const swrCentreParamsElement = (swrParams === undefined)
-        ? <h5 className='default'>SWC Cache de Centre.Params = "undefined"</h5>
-        : <h5>State CentreContext.Params = "chargés"</h5>;
+        ? <h5 className='default'>SWC Cache de Centre.params = "undefined"</h5>
+        : <h5>State CentreContext.params = "chargés"</h5>;
 
 
   // React-Query
@@ -74,58 +75,58 @@ function HomePage() {
   // console.log(cacheData);
   // }, []);
 
-  const rqstoreCentre = useSelector((state: RootState) => state.centre)
-///  const storeCentreParams = useSelector((state: RootState) => state.centre.Params)
-  const rqStoreCentreNameElement = (rqstoreCentre.Nom === undefined)
-        ? <h5 className='default'>RQ Cache de Centre.Nom = "undefined"</h5>
-        : <h5>State de RtkStore.Nom = "{rqstoreCentre.Nom}"</h5>;
-  const rqStoreCentreParamsElement = (rqstoreCentre.Params === undefined)
-        ? <h5 className='default'>RQ Cache de Centre.Params = "undefined"</h5>
-        : <h5>State RtkStore.Params = "chargés"</h5>;
+//   const rqstoreCentre = useSelector((state: RootState) => state.centre)
+// ///  const storeCentreParams = useSelector((state: RootState) => state.centre.params)
+//   const rqStoreCentreNameElement = (rqstoreCentre.name === undefined)
+//         ? <h5 className='default'>RQ Cache de Centre.name = "undefined"</h5>
+//         : <h5>State de RtkStore.name = "{rqstoreCentre.name}"</h5>;
+//   const rqStoreCentreParamsElement = (rqstoreCentre.params === undefined)
+//         ? <h5 className='default'>RQ Cache de Centre.params = "undefined"</h5>
+//         : <h5>State RtkStore.params = "chargés"</h5>;
 
 
-  // RTK
-  const storeCentre = useSelector((state: RootState) => state.centre)
-///  const storeCentreParams = useSelector((state: RootState) => state.centre.Params)
-  const rtkStoreCentreNameElement = (storeCentre.Nom === undefined)
-        ? <h5 className='default'>RtkStore.Nom = "undefined"</h5>
-        : <h5>State de RtkStore.Nom = "{storeCentre.Nom}"</h5>;
-  const rtkStoreCentreParamsElement = (storeCentre.Params === undefined)
-        ? <h5 className='default'>RtkStore.Params = "undefined"</h5>
-        : <h5>State RtkStore.Params = "chargés"</h5>;
+//   // RTK
+//   const storeCentre = useSelector((state: RootState) => state.centre)
+// ///  const storeCentreParams = useSelector((state: RootState) => state.centre.params)
+//   const rtkStoreCentreNameElement = (storeCentre.name === undefined)
+//         ? <h5 className='default'>RtkStore.name = "undefined"</h5>
+//         : <h5>State de RtkStore.name = "{storeCentre.name}"</h5>;
+//   const rtkStoreCentreParamsElement = (storeCentre.params === undefined)
+//         ? <h5 className='default'>RtkStore.params = "undefined"</h5>
+//         : <h5>State RtkStore.params = "chargés"</h5>;
 
 
-  // Recoil
-  const recoilstoreCentre = useSelector((state: RootState) => state.centre)
-///  const storeCentreParams = useSelector((state: RootState) => state.centre.Params)
-  const recoilStoreCentreNameElement = (recoilstoreCentre.Nom === undefined)
-        ? <h5 className='default'>RecoilStore.Nom = "undefined"</h5>
-        : <h5>State de RtkStore.Nom = "{recoilstoreCentre.Nom}"</h5>;
-  const recoilStoreCentreParamsElement = (recoilstoreCentre.Params === undefined)
-        ? <h5 className='default'>RecoilStore.Params = "undefined"</h5>
-        : <h5>State RtkStore.Params = "chargés"</h5>;
+//   // Recoil
+//   const recoilstoreCentre = useSelector((state: RootState) => state.centre)
+// ///  const storeCentreParams = useSelector((state: RootState) => state.centre.params)
+//   const recoilStoreCentreNameElement = (recoilstoreCentre.name === undefined)
+//         ? <h5 className='default'>RecoilStore.name = "undefined"</h5>
+//         : <h5>State de RtkStore.name = "{recoilstoreCentre.name}"</h5>;
+//   const recoilStoreCentreParamsElement = (recoilstoreCentre.params === undefined)
+//         ? <h5 className='default'>RecoilStore.params = "undefined"</h5>
+//         : <h5>State RtkStore.params = "chargés"</h5>;
 
 
-  // Jotai
-  const jstoreCentre = useSelector((state: RootState) => state.centre)
-///  const storeCentreParams = useSelector((state: RootState) => state.centre.Params)
-  const jStoreCentreNameElement = (jstoreCentre.Nom === undefined)
-        ? <h5 className='default'>JotaiStore.Nom = "undefined"</h5>
-        : <h5>State de RtkStore.Nom = "{jstoreCentre.Nom}"</h5>;
-  const jStoreCentreParamsElement = (jstoreCentre.Params === undefined)
-        ? <h5 className='default'>JotaiStore.Params = "undefined"</h5>
-        : <h5>State RtkStore.Params = "chargés"</h5>;
+//   // Jotai
+//   const jstoreCentre = useSelector((state: RootState) => state.centre)
+// ///  const storeCentreParams = useSelector((state: RootState) => state.centre.params)
+//   const jStoreCentreNameElement = (jstoreCentre.name === undefined)
+//         ? <h5 className='default'>JotaiStore.name = "undefined"</h5>
+//         : <h5>State de RtkStore.name = "{jstoreCentre.name}"</h5>;
+//   const jStoreCentreParamsElement = (jstoreCentre.params === undefined)
+//         ? <h5 className='default'>JotaiStore.params = "undefined"</h5>
+//         : <h5>State RtkStore.params = "chargés"</h5>;
 
 
-  // Zustand
-  const zstoreCentre = useSelector((state: RootState) => state.centre)
-///  const storeCentreParams = useSelector((state: RootState) => state.centre.Params)
-  const zStoreCentreNameElement = (zstoreCentre.Nom === undefined)
-        ? <h5 className='default'>ZustandStore.Nom = "undefined"</h5>
-        : <h5>State de RtkStore.Nom = "{zstoreCentre.Nom}"</h5>;
-  const zStoreCentreParamsElement = (zstoreCentre.Params === undefined)
-        ? <h5 className='default'>ZustandStore.Params = "undefined"</h5>
-        : <h5>State RtkStore.Params = "chargés"</h5>;
+//   // Zustand
+//   const zstoreCentre = useSelector((state: RootState) => state.centre)
+// ///  const storeCentreParams = useSelector((state: RootState) => state.centre.params)
+//   const zStoreCentreNameElement = (zstoreCentre.name === undefined)
+//         ? <h5 className='default'>ZustandStore.name = "undefined"</h5>
+//         : <h5>State de RtkStore.name = "{zstoreCentre.name}"</h5>;
+//   const zStoreCentreParamsElement = (zstoreCentre.params === undefined)
+//         ? <h5 className='default'>ZustandStore.params = "undefined"</h5>
+//         : <h5>State RtkStore.params = "chargés"</h5>;
 
   return (
     <div className='homepage'>
@@ -139,17 +140,17 @@ function HomePage() {
         {centreNameElement}
         {centreParamsElement}
       </div>
-      <div>
+      {/* <div>
         <h3>RQ Cache Store</h3>
         {rqStoreCentreNameElement}
         {rqStoreCentreParamsElement}
-      </div>
+      </div> */}
       <div>
         <h3>SWR Cache Store</h3>
         {swrCentreNameElement}
         {swrCentreParamsElement}
       </div>
-      <div>
+      {/* <div>
       <h3>RTK Store</h3>
       {rtkStoreCentreNameElement}
       {rtkStoreCentreParamsElement}
@@ -168,7 +169,7 @@ function HomePage() {
       <h3>Zustand Store</h3>
       {zStoreCentreNameElement}
       {zStoreCentreParamsElement}
-      </div>
+      </div> */}
     </div>
     </div>
   );

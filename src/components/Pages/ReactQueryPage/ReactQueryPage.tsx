@@ -9,7 +9,7 @@
 
 //     useEffect(() => {
 //         console.log('in useEffect');
-//         if (state.Nom === undefined)
+//         if (state.name === undefined)
 //         {
 //           // console.log('end useEffect');
 //           loadCentreName();

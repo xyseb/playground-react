@@ -2,8 +2,8 @@ import React, { HTMLAttributes, ReactNode, createContext } from "react";
 
 export interface ICentreClass
 {
-    Nom?: string;
-    Params?: {};
+    name?: string;
+    params?: {};
 };
 
 export type CentreContextClassType = {
@@ -47,8 +47,8 @@ export class CentreContextClassProvider extends React.PureComponent<ICentreConte
         /* Init du state */
         this.state = {
           Centre: {
-            Nom: undefined,
-            Params: undefined  
+            name: undefined,
+            params: undefined  
           },
           loading: false
         };
@@ -56,7 +56,7 @@ export class CentreContextClassProvider extends React.PureComponent<ICentreConte
 
     componentDidMount() {
     //   console.log('in useEffect');
-    //   if (centre.Nom === undefined)
+    //   if (centre.name === undefined)
     //   {
     //     loadCentreName();
     //     // console.log('end useEffect');
@@ -73,7 +73,7 @@ export class CentreContextClassProvider extends React.PureComponent<ICentreConte
           }
           return response.json();
       })
-      .then(data => this.setState((prevState) => ({ Centre: { Nom:data.name, Params: prevState.Centre.Params } })))
+      .then(data => this.setState((prevState) => ({ Centre: { name:data.name, params: prevState.Centre.params } })))
       .catch(error => console.log(error));
       // console.log('centre from loadCentreName');
       // console.log(centre);
@@ -90,7 +90,7 @@ export class CentreContextClassProvider extends React.PureComponent<ICentreConte
           }
           return response.json();
       })
-      .then(data => this.setState((prevState) => ({ Centre: { Nom: prevState.Centre.Nom, Params: data.params } })))
+      .then(data => this.setState((prevState) => ({ Centre: { name: prevState.Centre.name, params: data.params } })))
       .catch(error => console.log(error));
       // console.log('centre from loadCentreParams');
       // console.log(centre);
