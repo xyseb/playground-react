@@ -33,7 +33,7 @@ import { Observable } from '@reactivex/rxjs/compat/Observable'
 
 import { getCentreName } from '../services'
 
-export const fetchCentreNameEpic = (action$ : any) => action$
+export const centreNameEpic = (action$ : any) => action$
   .ofType(FETCH_CENTRENAME)
   .switchMap(() =>
     Observable.of({
