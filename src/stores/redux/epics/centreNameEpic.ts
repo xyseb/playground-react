@@ -17,10 +17,10 @@ const fetchCentreName = (centrename: CentreName) => ({ type: FETCH_CENTRENAME })
 // const updateCentreName = (centreName) => ({ type: ADD_CENTRENAME_FULFILLED, payload });
 
 // epic
-export const fetchCentreNameEpic = (action$: BehaviorSubject<Action>) => action$.pipe(
+export const fetchCentreNameEpic = (action$: any) => action$.pipe(
     ofType(FETCH_CENTRENAME),
     mergeMap(action =>
-        ajax.getJSON(`http://localhost:8080/centre`).pipe(
+        ajax.getJSON<CentreName>(`http://localhost:8080/centre`).pipe(
         map(response => fetchCentreName(response))
         )
     )

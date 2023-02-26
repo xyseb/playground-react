@@ -1,8 +1,8 @@
-export const getCentreName = () =>
+export const getApiCentreName = () =>
   fetch("http://localhost:8080/centre")
     .then((response) => response.ok && response.json())
     .catch((err) => err);
-export const getCentreParams = () =>
+export const getApiCentreParams = () =>
   fetch("http://localhost:8080/params")
     .then((response) => response.ok && response.json())
     .catch((err) => err);
