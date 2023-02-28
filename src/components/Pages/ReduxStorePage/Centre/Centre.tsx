@@ -46,13 +46,20 @@ console.log(Array.isArray(centreParams));
   }
 
   useEffect(() => {
-    console.log('in useEffect');
+    console.log('-----in useEffect-----');
     if (centreName.name === undefined)
     {
       console.log('Centre::useEffect()::dispatch()');
       dispatch({type: FETCH_CENTRENAME_PENDING});
     }
+    console.log('-----out useEffect-----');
   }, []);
+
+  console.log("centreName2: +++++++++++");
+  const centreName2 = useSelector((state: any) => state.centreNameReducer[0]);
+  console.log(centreName2);
+  
+  
 
 
   return (
