@@ -4,9 +4,30 @@ import './HomePage.scss';
 //import { RootState } from '../../../stores/redux/ReduxStore';
 //import { RootState } from '../../../stores/rtk/RtkStore';
 import { useSelector, useStore } from 'react-redux'
+import { AppStateContextContext, ICentre } from '../../../contexts/AppStateContextProvider';
+import { isEmpty } from 'rxjs';
 
 
 function HomePage() {
+
+  // AppStateContext
+  const { appStateContext, setAppStateContext, updateAppStateContext } = useContext(AppStateContextContext);
+  let ctxCentre: ICentre = {
+      name: 'undefined',
+      params: undefined
+  }
+  let ctxCentreName: string = 'not loaded';
+  let ctxCentreParams: string = 'not loaded';
+  if ('name' in appStateContext) {
+    ctxCentreName = (appStateContext.name) ? appStateContext.name : 'undefined';
+  }
+  if ('params' in appStateContext) {
+    ctxCentreName = (appStateContext.params && Object.keys(appStateContext.params).length !== 0) ? 'loaded' : 'undefined';
+  }
+
+  const ctxCentreNameElement = <h5 className='default'>AppStateContext.centreName = "{ctxCentreName}"</h5>;
+  const ctxCentreParamsElement = <h5 className='default'>AppStateContext.centreParams = "{ctxCentreParams}"</h5>;
+
 
   // Redux
     const storeCentre = useStore();
@@ -62,6 +83,11 @@ function HomePage() {
           <br/>
           <br/>Le but est de pouvoir revenir sur cette page pour voir la persistance des données chargé depuis les autres pages.</p>
     <div className="homepage-parts">
+      <div>
+      <h3>App State Context</h3>
+      {ctxCentreNameElement}
+      {ctxCentreParamsElement}
+      </div>
       <div>
       <h3>Redux Store</h3>
       {reduxStoreCentreNameElement}

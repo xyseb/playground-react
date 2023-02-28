@@ -10,6 +10,7 @@ import RtkStorePage from '../Pages/RtkStorePage/RtkStorePage';
 
 import reduxStore from '../../stores/redux/ReduxStore'
 import { Provider } from 'react-redux'
+import AppStateContextProvider from '../../contexts/AppStateContextProvider';
 
 
 function App() {
@@ -22,16 +23,18 @@ function App() {
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/redux"><span>REDUX</span></NavLink>
         </nav>
       </header>
-      <Provider store={reduxStore}>
-        <section>
-          <Routes>
-            <Route path="/" element={<HomePage/>}>
-              <Route path="/home" element={<HomePage/>}/>
-            </Route>
-            <Route path="/redux" element={<ReduxStorePage/>}/>
-          </Routes>
-        </section>    
-      </Provider>
+      <AppStateContextProvider>
+        <Provider store={reduxStore}>
+          <section>
+            <Routes>
+              <Route path="/" element={<HomePage/>}>
+                <Route path="/home" element={<HomePage/>}/>
+              </Route>
+              <Route path="/redux" element={<ReduxStorePage/>}/>
+            </Routes>
+          </section>    
+        </Provider>
+      </AppStateContextProvider>
     </main>
   );
 }

@@ -35,7 +35,7 @@ import ButtonGetCentre from './ButtonGetCentre/ButtonGetCentre';
 function ReduxStorePage() {
     
     return (
-        <div className="CentreContextPage">
+        <div className="ReduxStorePage">
             <Centre />
             <ButtonGetCentre />
         </div>
