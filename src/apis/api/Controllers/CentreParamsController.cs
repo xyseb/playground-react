@@ -24,7 +24,7 @@ namespace api.Controllers
         [HttpGet]
         public IEnumerable<CentreParams> GetParams()
         {
-            return _context.params;
+            return _context.Params;
         }
 
         // GET: api/CentreParams/5
@@ -36,7 +36,7 @@ namespace api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var centreParams = await _context.params.FindAsync(id);
+            var centreParams = await _context.Params.FindAsync(id);
 
             if (centreParams == null)
             {
@@ -90,7 +90,7 @@ namespace api.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.params.Add(centreParams);
+            _context.Params.Add(centreParams);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetCentreParams", new { id = centreParams.Id }, centreParams);
@@ -105,13 +105,13 @@ namespace api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var centreParams = await _context.params.FindAsync(id);
+            var centreParams = await _context.Params.FindAsync(id);
             if (centreParams == null)
             {
                 return NotFound();
             }
 
-            _context.params.Remove(centreParams);
+            _context.Params.Remove(centreParams);
             await _context.SaveChangesAsync();
 
             return Ok(centreParams);
@@ -119,7 +119,7 @@ namespace api.Controllers
 
         private bool CentreParamsExists(long id)
         {
-            return _context.params.Any(e => e.Id == id);
+            return _context.Params.Any(e => e.Id == id);
         }
     }
 }

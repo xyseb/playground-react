@@ -23,8 +23,8 @@ export const centreSlice = createSlice({
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
     //   //const loadCentreName = async () => {
-    //   //  await fetch('http://localhost:8080/centre')
-    //     fetch('http://localhost:8080/centre')
+    //   //  await fetch('http://localhost:8080/centres')
+    //     fetch('http://localhost:8080/centres')
     //     .then(response => {
     //         if (!response.ok) {
     //             throw Error(response.statusText);
@@ -45,7 +45,7 @@ export const centreSlice = createSlice({
         // which detects changes to a "draft state" and produces a brand new
         // immutable state based off those changes
         //const loadCentreName = async () => {
-        //  await fetch('http://localhost:8080/centre')
+        //  await fetch('http://localhost:8080/centres')
           fetch('http://localhost:8080/params')
           .then(response => {
               if (!response.ok) {
@@ -64,7 +64,7 @@ export const centreSlice = createSlice({
 })
 
 const loadCentreName = async (state: any) => {
-    await fetch('http://localhost:8080/centre')
+    await fetch('http://localhost:8080/centres')
     .then(response => {
         if (!response.ok) {
             throw Error(response.statusText);

@@ -5,20 +5,35 @@ import './Centre.scss';
 import { useSelector, useDispatch, useStore } from 'react-redux'
 import { FETCH_CENTRENAME_PENDING } from '../../../../stores/redux/constants/ActionTypes'
 
-import { getNom, getParams } from './CentreSlice'
-
 function Centre() {
   const store = useStore();
+  const storeCentre = useStore();
+  console.log('CentrePage::useStore()');
+  console.log(storeCentre);
+  console.log('CentrePage::useStore()::getState()');
+  console.log(storeCentre.getState());
 
-  const centreName = useSelector((state: any) => state.centreName);
-  const centreParams = useSelector((state: any) => state.centreParams);
+const centreName = useSelector((state: any) => state.centreNameReducer[0]);
+console.log('CentrePage::useSelector(centreName)');
+console.log(centreName);
+const centreParams = useSelector((state: any) => state.centreParamsReducer);
+console.log('CentrePage::useSelector(centreParams)');
+console.log(centreParams);
+
+console.log('----centreName----');
+console.log(Array.isArray(centreName));
+console.log('----centreParams----');
+console.log(Array.isArray(centreParams));
+
+  // const centreName = useSelector((state: any) => state.centreName);
+  // const centreParams = useSelector((state: any) => state.centreParams);
   const dispatch = useDispatch();
   console.log('Centre::useSelector()');
   console.log(centreName);  
 
-  const centreNameElement = (centreName[0].name === undefined)
+  const centreNameElement = (centreName.name === undefined)
         ? <h3 className='default'>State CentreContext.name = "undefined"</h3>
-        : <h3>State CentreContext.name = "{centreName[0].name}"</h3>;
+        : <h3>State CentreContext.name = "{centreName.name}"</h3>;
 
   let centreParamElement, centreNameElementChildren
   if (centreParams[0].params === undefined) {

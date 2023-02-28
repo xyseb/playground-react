@@ -60,9 +60,12 @@ function HomePage() {
   //   const rtkStoreCentreParamsElement = (storeCentre.params === undefined)
   //         ? <h5 className='default'>RtkStore.params = "undefined"</h5>
   //         : <h5>State RtkStore.params = "chargés"</h5>;
-  const reduxStoreCentreNameElement = <h5 className='default'>RtkStore.name = "{centreName.name}"</h5>;
+  const reduxStoreCentreNameElement = <h5 className='default'>ReduxStore.name = "{centreName.name}"</h5>;
+  console.log('-------------------zzz');
+  console.log(centreParams[0].params[0].param0);
+  
   const reduxStoreCentreParamsElement = (centreParams[0].params.length <= 1)
-      ? <h5 className='default'>RtkStore.params = "{centreParams[0].params[0]}"</h5>
+      ? <h5 className='default'>RtkStore.params = "{centreParams[0].params[0].param0}"</h5>
       : <h5 className='default'>RtkStore.params = "chargé"</h5>;
 
 

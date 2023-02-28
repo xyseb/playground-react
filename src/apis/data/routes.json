@@ -1,0 +1,5 @@
+{
+    "/api/centres":"/centre",
+    "/api/params":"/params",
+    "/api/params/:paramId":"/params/:paramId"
+}

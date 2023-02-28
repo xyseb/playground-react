@@ -3,7 +3,7 @@ import { createSlice, PayloadAction, createAsyncThunk, AnyAction } from "@reduxj
 
 type State = CentreName | null;
 
-//export const fetchCentreName = createAsyncThunk("http://localhost:8080/centre", async () => api.fetchCentreName());
+//export const fetchCentreName = createAsyncThunk("http://localhost:8080/centres", async () => api.fetchCentreName());
 //export const fetchCentreParams = createAsyncThunk("http://localhost:8080/params", async () => api.fetchCentreParams());
 
 const initialState = [

@@ -40,3 +40,17 @@ E:\0_WS\git\rearchtypes_latest\src\api\obj\Debug\netcoreapp2.1\api.AssemblyInfo.
 E:\0_WS\git\rearchtypes_latest\src\api\obj\Debug\netcoreapp2.1\api.RazorTargetAssemblyInfo.cache
 E:\0_WS\git\rearchtypes_latest\src\api\obj\Debug\netcoreapp2.1\api.dll
 E:\0_WS\git\rearchtypes_latest\src\api\obj\Debug\netcoreapp2.1\api.pdb
+C:\Users\sebastien\Desktop\playground-react\src\apis\api\bin\Debug\netcoreapp2.1\api.dll
+C:\Users\sebastien\Desktop\playground-react\src\apis\api\bin\Debug\netcoreapp2.1\api.deps.json
+C:\Users\sebastien\Desktop\playground-react\src\apis\api\bin\Debug\netcoreapp2.1\api.runtimeconfig.json
+C:\Users\sebastien\Desktop\playground-react\src\apis\api\bin\Debug\netcoreapp2.1\api.runtimeconfig.dev.json
+C:\Users\sebastien\Desktop\playground-react\src\apis\api\bin\Debug\netcoreapp2.1\api.pdb
+C:\Users\sebastien\Desktop\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.csprojAssemblyReference.cache
+C:\Users\sebastien\Desktop\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.csproj.CoreCompileInputs.cache
+C:\Users\sebastien\Desktop\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.RazorAssemblyInfo.cache
+C:\Users\sebastien\Desktop\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.RazorAssemblyInfo.cs
+C:\Users\sebastien\Desktop\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.AssemblyInfoInputs.cache
+C:\Users\sebastien\Desktop\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.AssemblyInfo.cs
+C:\Users\sebastien\Desktop\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.RazorTargetAssemblyInfo.cache
+C:\Users\sebastien\Desktop\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.dll
+C:\Users\sebastien\Desktop\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.pdb
