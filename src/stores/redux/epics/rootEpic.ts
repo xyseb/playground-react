@@ -1,5 +1,4 @@
 import { combineEpics } from 'redux-observable';
-import { combineReducers } from 'redux';
 
 import { centerEpic } from './centreNameEpicGPT';
 import { paramsEpic } from './centreParamsEpicGPT';

@@ -6,12 +6,12 @@ import { useSelector, useDispatch, useStore } from 'react-redux'
 import { FETCH_CENTRENAME_PENDING } from '../../../../stores/redux/constants/ActionTypes'
 
 function Centre() {
-  const store = useStore();
-  const storeCentre = useStore();
-  console.log('CentrePage::useStore()');
-  console.log(storeCentre);
-  console.log('CentrePage::useStore()::getState()');
-  console.log(storeCentre.getState());
+  // const store = useStore();
+  // const storeCentre = useStore();
+  // console.log('CentrePage::useStore()');
+  // console.log(storeCentre);
+  // console.log('CentrePage::useStore()::getState()');
+  // console.log(storeCentre.getState());
 
 const centreName = useSelector((state: any) => state.centreNameReducer[0]);
 console.log('CentrePage::useSelector(centreName)');
@@ -47,11 +47,11 @@ console.log(Array.isArray(centreParams));
 
   useEffect(() => {
     console.log('-----in useEffect-----');
-    if (centreName.name === undefined)
-    {
+    // if (centreName.name === undefined)
+    // {
       console.log('Centre::useEffect()::dispatch()');
       dispatch({type: FETCH_CENTRENAME_PENDING});
-    }
+    // }
     console.log('-----out useEffect-----');
   }, []);
 

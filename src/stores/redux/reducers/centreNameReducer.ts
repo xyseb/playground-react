@@ -11,12 +11,16 @@ const initialState = [
 export default function centreNameReducer(state = initialState, action : { type:string, payload:any }) {
     switch (action.type) {
       case types.FETCH_CENTRENAME_PENDING:
+        console.log('dispatch-----> FETCH_CENTRENAME_PENDING');
+        console.log(state);
+                
         return {
           ...state,
           loading:true
         };
 
       case types.FETCH_CENTRENAME_ERROR:
+        console.log('dispatch-----> FETCH_CENTRENAME_ERROR');
         return {
           ...state,
           error: action.payload.error,
@@ -24,6 +28,7 @@ export default function centreNameReducer(state = initialState, action : { type:
         };
   
       case types.FETCH_CENTRENAME_SUCCESS:
+        console.log('dispatch-----> FETCH_CENTRENAME_SUCCESS');
         return {
           ...state,
           ...action.payload,
