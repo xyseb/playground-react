@@ -9,9 +9,11 @@ function CentreContextPage() {
    
     return (
         <div className="CentreContextPage">
-            <LoadingSpinner/>
-            <Centre />
-            <ButtonGetCentre />
+            <div className='container'>
+                <LoadingSpinner/>
+                <Centre />
+                <ButtonGetCentre />
+            </div>
         </div>
     );
 }

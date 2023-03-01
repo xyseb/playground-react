@@ -3,7 +3,7 @@ import { CentreContextClass, CentreContextClassType } from '../../../contextsCla
 // Import de la feuille de style *si nécessaire*
 import './HomePageClass.scss';
 
-import { RootState } from '../../../stores/rtk/RtkStore';
+import { RtkRootState } from '../../../stores/rtk/RtkStore';
 import { useSelector, useDispatch } from 'react-redux'
 
 /**
@@ -34,8 +34,8 @@ export default class HomePageClass extends React.PureComponent<IHomePageClassOwn
               ? <h3 className='default'>State CentreContext.Params = "undefined"</h3>
               : <h3>State CentreContext.Params = "chargés"</h3>;
 
-        const storeCentre = useSelector((state: RootState) => state.centre)
-        ///  const storeCentreParams = useSelector((state: RootState) => state.centre.Params)
+        const storeCentre = useSelector((state: RtkRootState) => state.centre)
+        ///  const storeCentreParams = useSelector((state: RtkRootState) => state.centre.Params)
         const rtkStoreCentreNameElement = (storeCentre.Nom === undefined)
               ? <h3 className='default'>State RtkStore.Nom = "undefined"</h3>
               : <h3>State de RtkStore.Nom = "{storeCentre.Nom}"</h3>;

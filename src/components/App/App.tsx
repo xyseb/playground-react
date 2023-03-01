@@ -8,10 +8,14 @@ import { Routes, Route, NavLink } from 'react-router-dom';
 import HomePage from '../Pages/HomePage/HomePage';
 import CentreContextPage from '../Pages/CentreContextPage/CentreContextPage';
 import NotFoundPage from '../Pages/NotFoundPage/NotFoundPage';
+import ReduxStorePage from '../Pages/ReduxStorePage/ReduxStorePage';
 import RtkStorePage from '../Pages/RtkStorePage/RtkStorePage';
 import CentreContextProvider from '../../contexts/CentreContextProvider';
 
-import { reduxStore } from '../../stores/redux/ReduxStore'
+import AppStateContextProvider from '../../contexts/AppStateContextProvider';
+
+
+import reduxStore from '../../stores/redux/ReduxStore'
 import { rtkStore } from '../../stores/rtk/RtkStore'
 import { Provider } from 'react-redux'
 
@@ -38,7 +42,7 @@ function App() {
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/ctx"><span>CTX</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/rq"><span>RQ</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/swr"><span>SWR</span></NavLink>
-          {/* <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/redux"><span>REDUX</span></NavLink> */}
+          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/redux"><span>REDUX</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/rtk"><span>RTK</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/kui"><span>KUI</span></NavLink>
           {/* <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/404"><span>404</span></NavLink> */}
@@ -46,6 +50,8 @@ function App() {
       </header>
       <SWRConfig value={{ provider: () => new Map(), fetcher: (url:string) => fetch(url).then(res => res.json()) }}>
       <QueryClientProvider client={queryClient}>
+      <AppStateContextProvider>
+      <Provider store={reduxStore}>
       <Provider store={rtkStore}>
         <CentreContextProvider>
         <section>
@@ -54,7 +60,7 @@ function App() {
               <Route path="/home" element={<HomePage/>}/>
             </Route>
             <Route path="/ctx" element={<CentreContextPage/>}/>
-            {/* <Route path="/redux" element={<NotFoundPage/>}/> */}
+            <Route path="/redux" element={<ReduxStorePage/>}/>
             <Route path="/rtk" element={<RtkStorePage/>}/>
             <Route path="/rq" element={<ReactQueryPage/>}/>
             <Route path="/swr" element={<SwrPage/>}/>
@@ -64,6 +70,8 @@ function App() {
         </section>    
         </CentreContextProvider>
       </Provider>
+      </Provider>
+      </AppStateContextProvider>
       <ReactQueryDevtools initialIsOpen={isDev} />
       </QueryClientProvider>
       </SWRConfig>

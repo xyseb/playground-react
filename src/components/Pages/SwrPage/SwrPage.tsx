@@ -17,7 +17,7 @@
 //       }, []);
     
 //     return (
-//         <div className="CentreContextPage">
+//         <div className="SwrPage">
 //             <LoadingSpinner/>
 //             <Centre />
 //             <ButtonGetCentre />
@@ -36,7 +36,7 @@ import ButtonGetCentre from './ButtonGetCentre/ButtonGetCentre';
 function ReactQueryPage() {
     
     return (
-        <div className="ReactQueryPage">
+        <div className="SwrPage">
             {/* <LoadingSpinner/> */}
             <Centre />
             <ButtonGetCentre />

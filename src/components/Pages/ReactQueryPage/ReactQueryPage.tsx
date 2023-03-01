@@ -17,7 +17,7 @@
 //       }, []);
     
 //     return (
-//         <div className="CentreContextPage">
+//         <div className="ReactQueryPage">
 //             <LoadingSpinner/>
 //             <Centre />
 //             <ButtonGetCentre />
