@@ -22,6 +22,9 @@ import { Provider } from 'react-redux'
 import ReactQueryPage from '../Pages/ReactQueryPage/ReactQueryPage';
 import { SWRConfig } from 'swr';
 import SwrPage from '../Pages/SwrPage/SwrPage';
+import JotaiStorePage from '../Pages/JotaiStorePage/JotaiStorePage';
+import RecoilStorePage from '../Pages/RecoilStorePage/RecoilStorePage';
+import ZustandStorePage from '../Pages/ZustandStorePage/ZustandStorePage';
 
 const isDev = (process.env.NODE_ENV === 'development') ? true : false;
 const queryClient = new QueryClient({ 
@@ -44,6 +47,9 @@ function App() {
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/swr"><span>SWR</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/redux"><span>REDUX</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/rtk"><span>RTK</span></NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/jotai"><span>JOTAIL</span></NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/recoil"><span>RECOIL</span></NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/zustand"><span>ZUSTAND</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/kui"><span>KUI</span></NavLink>
           {/* <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/404"><span>404</span></NavLink> */}
         </nav>
@@ -60,10 +66,13 @@ function App() {
               <Route path="/home" element={<HomePage/>}/>
             </Route>
             <Route path="/ctx" element={<CentreContextPage/>}/>
-            <Route path="/redux" element={<ReduxStorePage/>}/>
-            <Route path="/rtk" element={<RtkStorePage/>}/>
             <Route path="/rq" element={<ReactQueryPage/>}/>
             <Route path="/swr" element={<SwrPage/>}/>
+            <Route path="/redux" element={<ReduxStorePage/>}/>
+            <Route path="/rtk" element={<RtkStorePage/>}/>
+            <Route path="/jotail" element={<JotaiStorePage/>}/>
+            <Route path="/recoil" element={<RecoilStorePage/>}/>
+            <Route path="/zustand" element={<ZustandStorePage/>}/>
             <Route path="/kui" element={<NotFoundPage/>}/>
             {/* <Route path="/404" element={<NotFoundPage/>}/> */}
           </Routes>

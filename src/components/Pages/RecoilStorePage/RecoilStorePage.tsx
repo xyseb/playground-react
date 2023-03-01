@@ -1,11 +1,11 @@
 // import React, { useState, useEffect, useCallback, useMemo, useContext } from 'react';
-// import './RtkStorePage.scss';
+// import './RecoilStorePage.scss';
 
 // import Centre from './Centre/Centre';
 // import ButtonGetCentre from './ButtonGetCentre/ButtonGetCentre';
 // import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
-// function RtkStorePage() {
+// function RecoilStorePage() {
 
 //     useEffect(() => {
 //         console.log('in useEffect');
@@ -17,7 +17,7 @@
 //       }, []);
     
 //     return (
-//         <div className="RtkStorePage">
+//         <div className="RecoilStorePage">
 //             <LoadingSpinner/>
 //             <Centre />
 //             <ButtonGetCentre />
@@ -25,18 +25,18 @@
 //     );
 // }
 
-// export default RtkStorePage;
+// export default RecoilStorePage;
 import React, { useState, useEffect, useCallback, useMemo, useContext } from 'react';
-import './RtkStorePage.scss';
+import './RecoilStorePage.scss';
 
 import Centre from './Centre/Centre';
 import ButtonGetCentre from './ButtonGetCentre/ButtonGetCentre';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
-function RtkStorePage() {
+function RecoilStorePage() {
     
     return (
-        <div className="RtkStorePage">
+        <div className="RecoilStorePage">
             <LoadingSpinner/>
             <Centre />
             <ButtonGetCentre />
@@ -44,4 +44,4 @@ function RtkStorePage() {
     );
 }
 
-export default RtkStorePage;
+export default RecoilStorePage;

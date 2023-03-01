@@ -117,7 +117,7 @@ function HomePage() {
   const ctxCentreParamsElement = <h5 className='default'>AppStateContext.centreParams = "{ctxCentreParams}"</h5>;
 
 
-/**/
+/*
   // Redux
   const reduxStoreCentre = useStore();
   console.log('Homepage::useStore()');
@@ -156,7 +156,7 @@ const reduxStoreCentreNameElement = <h5 className='default'>ReduxStore.name = "{
 const reduxStoreCentreParamsElement = (centreParams[0].params.length <= 1)
     ? <h5 className='default'>RtkStore.params = "{centreParams[0].params[0].param0}"</h5>
     : <h5 className='default'>RtkStore.params = "chargé"</h5>;
-
+*/
 
 
   // RTK
@@ -235,8 +235,8 @@ const reduxStoreCentreParamsElement = (centreParams[0].params.length <= 1)
             </div>
             <div>
                 <h3>Redux Store</h3>
-                {reduxStoreCentreNameElement}
-                {reduxStoreCentreParamsElement}
+                {/* {reduxStoreCentreNameElement}
+                {reduxStoreCentreParamsElement} */}
             </div>
             <div>
                 <h3>RTK Store</h3>

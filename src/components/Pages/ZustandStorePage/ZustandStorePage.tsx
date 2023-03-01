@@ -1,11 +1,11 @@
 // import React, { useState, useEffect, useCallback, useMemo, useContext } from 'react';
-// import './RtkStorePage.scss';
+// import './ZustandStorePage.scss';
 
 // import Centre from './Centre/Centre';
 // import ButtonGetCentre from './ButtonGetCentre/ButtonGetCentre';
 // import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
-// function RtkStorePage() {
+// function ZustandStorePage() {
 
 //     useEffect(() => {
 //         console.log('in useEffect');
@@ -17,7 +17,7 @@
 //       }, []);
     
 //     return (
-//         <div className="RtkStorePage">
+//         <div className="ZustandStorePage">
 //             <LoadingSpinner/>
 //             <Centre />
 //             <ButtonGetCentre />
@@ -25,18 +25,18 @@
 //     );
 // }
 
-// export default RtkStorePage;
+// export default ZustandStorePage;
 import React, { useState, useEffect, useCallback, useMemo, useContext } from 'react';
-import './RtkStorePage.scss';
+import './ZustandStorePage.scss';
 
 import Centre from './Centre/Centre';
 import ButtonGetCentre from './ButtonGetCentre/ButtonGetCentre';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
-function RtkStorePage() {
+function ZustandStorePage() {
     
     return (
-        <div className="RtkStorePage">
+        <div className="ZustandStorePage">
             <LoadingSpinner/>
             <Centre />
             <ButtonGetCentre />
@@ -44,4 +44,4 @@ function RtkStorePage() {
     );
 }
 
-export default RtkStorePage;
+export default ZustandStorePage;
