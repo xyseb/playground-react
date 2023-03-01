@@ -12608,11 +12608,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\0_WS\\git\\rearchtypes_latest\\src\\api\\api.csproj",
+      "projectUniqueName": "C:\\Users\\sebastien\\Desktop\\playground-react\\src\\apis\\api\\api.csproj",
       "projectName": "api",
-      "projectPath": "E:\\0_WS\\git\\rearchtypes_latest\\src\\api\\api.csproj",
+      "projectPath": "C:\\Users\\sebastien\\Desktop\\playground-react\\src\\apis\\api\\api.csproj",
       "packagesPath": "C:\\Users\\sebastien\\.nuget\\packages\\",
-      "outputPath": "E:\\0_WS\\git\\rearchtypes_latest\\src\\api\\obj\\",
+      "outputPath": "C:\\Users\\sebastien\\Desktop\\playground-react\\src\\apis\\api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

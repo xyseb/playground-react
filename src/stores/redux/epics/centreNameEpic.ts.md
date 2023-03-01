@@ -20,7 +20,7 @@ const fetchCentreName = (centrename: CentreName) => ({ type: FETCH_CENTRENAME })
 export const fetchCentreNameEpic = (action$: BehaviorSubject<Action>) => action$.pipe(
     ofType(FETCH_CENTRENAME),
     mergeMap(action =>
-        ajax.getJSON(`http://localhost:8080/centres`).pipe(
+        ajax.getJSON(`http://localhost:8080/centre`).pipe(
         map(response => fetchCentreName(response))
         )
     )
@@ -54,7 +54,7 @@ import { FETCH_CENTRENAME, FETCH_CENTRENAME_PENDING, FETCH_CENTRENAME_SUCCESS } 
 // export const fetchCentreNameEpic = (action$: BehaviorSubject<Action>) => action$.pipe(
 //     ofType(FETCH_CENTRENAME),
 //     mergeMap(action =>
-//         ajax.getJSON(`http://localhost:8080/centres`).pipe(
+//         ajax.getJSON(`http://localhost:8080/centre`).pipe(
 //         map(response => fetchCentreName(response))
 //         )
 //     )

@@ -51,7 +51,7 @@ export function fetchCenterRejected(error: Error): FetchCenterRejectedAction {
 }
 
 
-const API_URL = 'http://localhost:8080/api/centres';
+const API_URL = 'http://localhost:8080/api/centre';
 
 export const centerEpic: Epic = (action$) => action$.pipe(
   // Filter action type FETCH_CENTER

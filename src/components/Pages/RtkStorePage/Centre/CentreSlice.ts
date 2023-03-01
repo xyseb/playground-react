@@ -47,7 +47,7 @@ export const centreSlice = createSlice({
         //const loadCentreName = async () => {
         //  await fetch('http://localhost:8080/centre')
           fetch('http://localhost:8080/params')
-          .then(response => {
+          .then(async response => {
               if (!response.ok) {
                   throw Error(response.statusText);
               }
@@ -65,11 +65,11 @@ export const centreSlice = createSlice({
 
 const loadCentreName = async (state: any) => {
     await fetch('http://localhost:8080/centre')
-    .then(response => {
+    .then(async response => {
         if (!response.ok) {
             throw Error(response.statusText);
         }
-        return response.json();
+        return await response.json();
     })
     .then(data => state.Nom = data.name)
     .catch(error => console.log(error));

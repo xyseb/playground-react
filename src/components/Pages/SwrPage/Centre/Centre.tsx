@@ -74,7 +74,7 @@ function Centre() {
     //       res.json()
     //   ))
 
-    //   setTimeout(() => setLoading(false), 3000);
+    //   setTimeout(() => setLoading(false), 2000);
     // }
   }, []);
 

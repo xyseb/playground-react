@@ -47,7 +47,7 @@ const CentreContextProvider: FunctionComponent<CentreContextProviderProps> = ({ 
     // console.log('centre from loadCentreName');
     // console.log(centre);
 
-    setTimeout(() => setLoading(false), 3000);
+    setTimeout(() => setLoading(false), 2000);
   }
 
   const loadCentreParams = async () => {
@@ -64,7 +64,7 @@ const CentreContextProvider: FunctionComponent<CentreContextProviderProps> = ({ 
     // console.log('centre from loadCentreParams');
     // console.log(centre);
 
-    setTimeout(() => setLoading(false), 3000);
+    setTimeout(() => setLoading(false), 2000);
   }
 
   // useEffect(() => {

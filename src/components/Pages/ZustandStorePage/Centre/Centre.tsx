@@ -32,7 +32,7 @@ function Centre() {
     {
       setLoading(true);
       dispatch(getNom());
-      setTimeout(() => setLoading(false), 3000);
+      setTimeout(() => setLoading(false), 2000);
     }
   }, []);
 

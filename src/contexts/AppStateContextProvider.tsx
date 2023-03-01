@@ -33,7 +33,7 @@ const AppStateContextProvider: FunctionComponent<AppStateContextProviderProps> =
   const updateAppStateContext = (updatedAppStateContext: ICentre) => {
     setLoading(true);
     setAppStateContext({...appStateContext, ...updatedAppStateContext });
-    setTimeout(() => setLoading(false), 3000);
+    setTimeout(() => setLoading(false), 2000);
   }
 
   return (

@@ -20,7 +20,7 @@ import { FETCH_CENTREPARAMS, FETCH_CENTREPARAMS_SUCCESS } from '../constants/Act
 // export const fetchCentreNameEpic = (action$: BehaviorSubject<Action>) => action$.pipe(
 //     ofType(FETCH_CENTRENAME),
 //     mergeMap(action =>
-//         ajax.getJSON(`http://localhost:8080/centres`).pipe(
+//         ajax.getJSON(`http://localhost:8080/centre`).pipe(
 //         map(response => fetchCentreName(response))
 //         )
 //     )

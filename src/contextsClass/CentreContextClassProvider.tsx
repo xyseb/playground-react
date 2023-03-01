@@ -78,7 +78,7 @@ export class CentreContextClassProvider extends React.PureComponent<ICentreConte
       // console.log('centre from loadCentreName');
       // console.log(centre);
   
-      setTimeout(() => this.setState((prevState) => ({ loading: true })), 3000);
+      setTimeout(() => this.setState((prevState) => ({ loading: true })), 2000);
     }
   
     public async loadCentreParams() {
@@ -95,7 +95,7 @@ export class CentreContextClassProvider extends React.PureComponent<ICentreConte
       // console.log('centre from loadCentreParams');
       // console.log(centre);
   
-      setTimeout(() => this.setState((prevState) => ({ loading: true })), 3000);
+      setTimeout(() => this.setState((prevState) => ({ loading: true })), 2000);
     }
 
     public render(): JSX.Element | null | false //JSXNElement
