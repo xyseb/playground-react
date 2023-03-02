@@ -1,37 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './Centre.scss';
 
-import { RtkRootState } from '../../../../stores/rtk/RtkStore';
-import { useSelector, useDispatch } from 'react-redux'
-import { getNom, getParams } from './CentreSlice'
+import { useAtom } from 'jotai';
+import { newCentreNameAtom, newCentreParamAtom, newLoadingAtom } from '../../../../stores/jotai/jotaiStore';
 
 function Centre() {
-  // const storeCentreNom: string|undefined = useSelector((state: RtkRootState) => state.centre.Nom);
-  // const storeCentreParams: {}|undefined = useSelector((state: RtkRootState) => state.centre.Params);
-  const storeCentre = useSelector((state: RtkRootState) => state.centre);
-  const dispatch = useDispatch();
+  const [centreName, setCentreName] = useAtom(newCentreNameAtom);
+  const [centreParams, setCentreParams] = useAtom(newCentreParamAtom);
+  const [loading, setLoading] = useAtom(newLoadingAtom);
 
-  const [loading, setLoading] = useState(false);
-
-  const centreNameElement = (storeCentre.Nom === undefined)
+  const loadCentreName = async () => {
+    await fetch('http://localhost:8080/centre')
+    .then(async response => {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return await response.json();
+    })
+    .then(data => setCentreName(data.name))
+    .catch(error => console.log(error));
+  }
+ 
+  const centreNameElement = (centreName === undefined)
         ? <h3 className='default'>State CentreContext.Nom = "undefined"</h3>
-        : <h3>State CentreContext.Nom = "{storeCentre.Nom}"</h3>;
+        : <h3>State CentreContext.Nom = "{centreName}"</h3>;
 
   let centreParamElement, centreNameElementChildren
-  if (storeCentre.Params === undefined) {
+  if (centreParams === undefined) {
     centreParamElement = <h3 className='default'>Paramètres de centre non chargés. Click le bouton 😀</h3>;
   }
   else {
-    centreNameElementChildren = Object.entries(storeCentre.Params).map((d) => <li>{d[0]+": "+d[1]}</li>);
+    centreNameElementChildren = Object.entries(centreParams).map((d) => <li key={d[0]}>{d[0]+": "+d[1]}</li>);
     centreParamElement = <ul>{centreNameElementChildren}</ul>;
   }
 
+
   useEffect(() => {
     console.log('in useEffect');
-    if (storeCentre.Nom === undefined)
+    if (centreName === undefined)
     {
       setLoading(true);
-      dispatch(getNom());
+      loadCentreName()
       setTimeout(() => setLoading(false), 2000);
     }
   }, []);

@@ -26,6 +26,9 @@ import JotaiStorePage from '../Pages/JotaiStorePage/JotaiStorePage';
 import RecoilStorePage from '../Pages/RecoilStorePage/RecoilStorePage';
 import ZustandStorePage from '../Pages/ZustandStorePage/ZustandStorePage';
 
+import { Provider as JotaiProvider } from "jotai";
+import jotaiStore from '../../stores/jotai/jotaiStore'
+
 const isDev = (process.env.NODE_ENV === 'development') ? true : false;
 const queryClient = new QueryClient({ 
   defaultOptions: {
@@ -47,7 +50,7 @@ function App() {
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/swr"><span>SWR</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/redux"><span>REDUX</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/rtk"><span>RTK</span></NavLink>
-          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/jotai"><span>JOTAIL</span></NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/jotai"><span>JOTAI</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/recoil"><span>RECOIL</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/zustand"><span>ZUSTAND</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/kui"><span>KUI</span></NavLink>
@@ -59,6 +62,7 @@ function App() {
       <AppStateContextProvider>
       <Provider store={reduxStore}>
       <Provider store={rtkStore}>
+      <JotaiProvider store={jotaiStore}>
         <CentreContextProvider>
         <section>
           <Routes>
@@ -70,7 +74,7 @@ function App() {
             <Route path="/swr" element={<SwrPage/>}/>
             <Route path="/redux" element={<ReduxStorePage/>}/>
             <Route path="/rtk" element={<RtkStorePage/>}/>
-            <Route path="/jotail" element={<JotaiStorePage/>}/>
+            <Route path="/jotai" element={<JotaiStorePage/>}/>
             <Route path="/recoil" element={<RecoilStorePage/>}/>
             <Route path="/zustand" element={<ZustandStorePage/>}/>
             <Route path="/kui" element={<NotFoundPage/>}/>
@@ -78,6 +82,7 @@ function App() {
           </Routes>
         </section>    
         </CentreContextProvider>
+      </JotaiProvider>
       </Provider>
       </Provider>
       </AppStateContextProvider>
