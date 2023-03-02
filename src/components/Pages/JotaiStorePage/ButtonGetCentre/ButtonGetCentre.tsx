@@ -6,7 +6,7 @@ import { useAtom } from 'jotai';
 import { newCentreParamAtom, newLoadingAtom } from '../../../../stores/jotai/jotaiStore';
 
 function ButtonGetCentre() {
-  const [centreParams, setCentreParams] = useAtom(newCentreParamAtom);
+  const [, setCentreParams] = useAtom(newCentreParamAtom);
   const [loading, setLoading] = useAtom(newLoadingAtom);
 
   const loadCentreParams = async () => {

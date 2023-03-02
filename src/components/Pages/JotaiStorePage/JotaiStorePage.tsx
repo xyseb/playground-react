@@ -31,7 +31,7 @@ import './JotaiStorePage.scss';
 
 import Centre from './Centre/Centre';
 import ButtonGetCentre from './ButtonGetCentre/ButtonGetCentre';
-import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
+import LoadingSpinner from './LoadingSpinner/LoadingSpinner';
 
 function JotaiStorePage() {
     

@@ -18,17 +18,21 @@ import { RtkRootState } from '../../../stores/rtk/RtkStore';
 import { useSWRConfig } from 'swr';
 import { ReduxRootState } from '../../../stores/redux/ReduxStore';
 
+// jotai
+import { useAtom } from 'jotai';
+import { newCentreNameAtom, newCentreParamAtom } from '../../../stores/jotai/jotaiStore';
+
 function HomePage() {
 
   // Context
   const { centre } = useContext(CentreContext) as CentreContextType;
 
   const centreNameElement = (centre.Nom === undefined)
-        ? <h5 className='default'>CentreContext.Nom = "undefined"</h5>
-        : <h5>State de CentreContext.Nom = "{centre.Nom}"</h5>;
+        ? <h5 className='default'>CentreName = "undefined"</h5>
+        : <h5>CentreName = "{centre.Nom}"</h5>;
   const centreParamsElement = (centre.Params === undefined)
-        ? <h5 className='default'>CentreContext.Params = "undefined"</h5>
-        : <h5>State CentreContext.Params = "chargés"</h5>;
+        ? <h5 className='default'>CentreParams = "undefined"</h5>
+        : <h5>CentreParams = "chargés"</h5>;
 
 
   // SWR
@@ -37,11 +41,11 @@ function HomePage() {
   const swrParams = cache.get('http://localhost:8080/params')?.data.params;
 
   const swrCentreNameElement = (swrName === undefined)
-        ? <h5 className='default'>SWC Cache de Centre.Nom = "undefined"</h5>
-        : <h5>State de CentreContext.Nom = "{swrName}"</h5>;
+        ? <h5 className='default'>Cache de CentreName = "undefined"</h5>
+        : <h5>Cache de CentreName = "{swrName}"</h5>;
   const swrCentreParamsElement = (swrParams === undefined)
-        ? <h5 className='default'>SWC Cache de Centre.Params = "undefined"</h5>
-        : <h5>State CentreContext.Params = "chargés"</h5>;
+        ? <h5 className='default'>Cache de CentreParams = "undefined"</h5>
+        : <h5>Cache de CentreParams = "chargés"</h5>;
 
 
 
@@ -90,11 +94,11 @@ function HomePage() {
   const rqstoreCentre = useSelector((state: RtkRootState) => state.centre)
 ///  const storeCentreParams = useSelector((state: RtkRootState) => state.centre.Params)
   const rqStoreCentreNameElement = (rqstoreCentre.Nom === undefined)
-        ? <h5 className='default'>RQ Cache de Centre.Nom = "undefined"</h5>
-        : <h5>State de RtkStore.Nom = "{rqstoreCentre.Nom}"</h5>;
+        ? <h5 className='default'>Cache de CentreName = "undefined"</h5>
+        : <h5>Cache de CentreName = "{rqstoreCentre.Nom}"</h5>;
   const rqStoreCentreParamsElement = (rqstoreCentre.Params === undefined)
-        ? <h5 className='default'>RQ Cache de Centre.Params = "undefined"</h5>
-        : <h5>State RtkStore.Params = "chargés"</h5>;
+        ? <h5 className='default'>Cache de CentreParams = "undefined"</h5>
+        : <h5>Cache de CentreParams = "chargés"</h5>;
 
 
 
@@ -113,8 +117,8 @@ function HomePage() {
     ctxCentreName = (appStateContext.params && Object.keys(appStateContext.params).length !== 0) ? 'loaded' : 'undefined';
   }
 
-  const ctxCentreNameElement = <h5 className='default'>AppStateContext.centreName = "{ctxCentreName}"</h5>;
-  const ctxCentreParamsElement = <h5 className='default'>AppStateContext.centreParams = "{ctxCentreParams}"</h5>;
+  const ctxCentreNameElement = <h5 className='default'>CentreName = "{ctxCentreName}"</h5>;
+  const ctxCentreParamsElement = <h5 className='default'>CentreName = "{ctxCentreParams}"</h5>;
 
 
 /*
@@ -144,11 +148,11 @@ console.log(centreParams);
 //const storeCentre = useSelector((state) => state.centre)
 ////  const storeCentreParams = useSelector((state: RootState) => state.centre.params)
 //   const rtkStoreCentreNameElement = (storeCentre.name === undefined)
-//         ? <h5 className='default'>RtkStore.name = "undefined"</h5>
-//         : <h5>State de RtkStore.name = "{storeCentre.name}"</h5>;
+//         ? <h5 className='default'>CentreName = "undefined"</h5>
+//         : <h5>CentreName = "{storeCentre.name}"</h5>;
 //   const rtkStoreCentreParamsElement = (storeCentre.params === undefined)
-//         ? <h5 className='default'>RtkStore.params = "undefined"</h5>
-//         : <h5>State RtkStore.params = "chargés"</h5>;
+//         ? <h5 className='default'>CentreParams = "undefined"</h5>
+//         : <h5>CentreParams = "chargés"</h5>;
 const reduxStoreCentreNameElement = <h5 className='default'>ReduxStore.name = "{centreName.name}"</h5>;
 // console.log('-------------------zzz');
 // console.log(centreParams[0].params[0].param0);
@@ -163,11 +167,11 @@ const reduxStoreCentreParamsElement = (centreParams[0].params.length <= 1)
   const storeCentre = useSelector((state: RtkRootState) => state.centre)
 ///  const storeCentreParams = useSelector((state: RtkRootState) => state.centre.Params)
   const rtkStoreCentreNameElement = (storeCentre.Nom === undefined)
-        ? <h5 className='default'>RtkStore.Nom = "undefined"</h5>
-        : <h5>State de RtkStore.Nom = "{storeCentre.Nom}"</h5>;
+        ? <h5 className='default'>CentreName = "undefined"</h5>
+        : <h5>CentreName = "{storeCentre.Nom}"</h5>;
   const rtkStoreCentreParamsElement = (storeCentre.Params === undefined)
-        ? <h5 className='default'>RtkStore.Params = "undefined"</h5>
-        : <h5>State RtkStore.Params = "chargés"</h5>;
+        ? <h5 className='default'>CentreParams = "undefined"</h5>
+        : <h5>CentreParams = "chargés"</h5>;
 
 
 
@@ -175,23 +179,24 @@ const reduxStoreCentreParamsElement = (centreParams[0].params.length <= 1)
   const recoilstoreCentre = useSelector((state: RtkRootState) => state.centre)
 ///  const storeCentreParams = useSelector((state: RtkRootState) => state.centre.Params)
   const recoilStoreCentreNameElement = (recoilstoreCentre.Nom === undefined)
-        ? <h5 className='default'>RecoilStore.Nom = "undefined"</h5>
-        : <h5>State de RtkStore.Nom = "{recoilstoreCentre.Nom}"</h5>;
+        ? <h5 className='default'>CentreName = "undefined"</h5>
+        : <h5>CentreName = "{recoilstoreCentre.Nom}"</h5>;
   const recoilStoreCentreParamsElement = (recoilstoreCentre.Params === undefined)
-        ? <h5 className='default'>RecoilStore.Params = "undefined"</h5>
-        : <h5>State RtkStore.Params = "chargés"</h5>;
+        ? <h5 className='default'>CentreParams = "undefined"</h5>
+        : <h5>CentreParams = "chargés"</h5>;
 
 
 
   // Jotai
-  const jstoreCentre = useSelector((state: RtkRootState) => state.centre)
-///  const storeCentreParams = useSelector((state: RtkRootState) => state.centre.Params)
-  const jStoreCentreNameElement = (jstoreCentre.Nom === undefined)
-        ? <h5 className='default'>JotaiStore.Nom = "undefined"</h5>
-        : <h5>State de RtkStore.Nom = "{jstoreCentre.Nom}"</h5>;
-  const jStoreCentreParamsElement = (jstoreCentre.Params === undefined)
-        ? <h5 className='default'>JotaiStore.Params = "undefined"</h5>
-        : <h5>State RtkStore.Params = "chargés"</h5>;
+  const [jotailCentreName] = useAtom(newCentreNameAtom);
+  const [jotailCentreParams] = useAtom(newCentreParamAtom);
+
+  const jStoreCentreNameElement = (jotailCentreName === undefined)
+        ? <h5 className='default'>CentreName = "undefined"</h5>
+        : <h5>CentreName = "{jotailCentreName}"</h5>;
+  const jStoreCentreParamsElement = (jotailCentreParams === undefined)
+        ? <h5 className='default'>CentreParams = "undefined"</h5>
+        : <h5>CentreParams = "chargés"</h5>;
 
 
 
@@ -199,11 +204,11 @@ const reduxStoreCentreParamsElement = (centreParams[0].params.length <= 1)
   const zstoreCentre = useSelector((state: RtkRootState) => state.centre)
 ///  const storeCentreParams = useSelector((state: RtkRootState) => state.centre.Params)
   const zStoreCentreNameElement = (zstoreCentre.Nom === undefined)
-        ? <h5 className='default'>ZustandStore.Nom = "undefined"</h5>
-        : <h5>State de RtkStore.Nom = "{zstoreCentre.Nom}"</h5>;
+        ? <h5 className='default'>CentreName = "undefined"</h5>
+        : <h5>CentreName = "{zstoreCentre.Nom}"</h5>;
   const zStoreCentreParamsElement = (zstoreCentre.Params === undefined)
-        ? <h5 className='default'>ZustandStore.Params = "undefined"</h5>
-        : <h5>State RtkStore.Params = "chargés"</h5>;
+        ? <h5 className='default'>CentreParams = "undefined"</h5>
+        : <h5>CentreParams = "chargés"</h5>;
 
   return (
     <div className='homepage'>
