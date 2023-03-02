@@ -12,7 +12,9 @@ namespace api.Models
 
         }
 
-        public DbSet<Centre> Centre { get; set; }        
-        public DbSet<CentreParams> Params { get; set; }        
+        public DbSet<Centre> Centre { get; set; }
+        public DbSet<CentreParams> Params { get; set; }
+
+        public DbSet<CentreUser> Users { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PP4ES/GPUnrDKO5/kQ52ozCX82X9Umy003PHX3JVs3JNMYWyGLgtiuwrmOkHp1/6eW9OXZ4qdmYvugg7C+CeOw==",
+  "dgSpecHash": "LxsJBauAXvCPEmnmJmgnegnKRTwCPzj/eQPFnXkAslwlwvSk7TbZIOyEuP/2EIVqI3FXAPsRma3KA9Y03cVp8w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sebastien Deschamps\\Desktop\\mono-intranet-nt\\packages\\api\\api.csproj",
+  "projectFilePath": "C:\\Users\\Sebastien Deschamps\\0_WS\\playground-react\\src\\apis\\api\\api.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore\\2.1.1\\microsoft.aspnetcore.2.1.1.nupkg.sha512",

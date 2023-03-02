@@ -1,23 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sebastien\\Desktop\\playground-react\\src\\apis\\api\\api.csproj": {}
+    "C:\\Users\\Sebastien Deschamps\\0_WS\\playground-react\\src\\apis\\api\\api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sebastien\\Desktop\\playground-react\\src\\apis\\api\\api.csproj": {
+    "C:\\Users\\Sebastien Deschamps\\0_WS\\playground-react\\src\\apis\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sebastien\\Desktop\\playground-react\\src\\apis\\api\\api.csproj",
+        "projectUniqueName": "C:\\Users\\Sebastien Deschamps\\0_WS\\playground-react\\src\\apis\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "C:\\Users\\sebastien\\Desktop\\playground-react\\src\\apis\\api\\api.csproj",
-        "packagesPath": "C:\\Users\\sebastien\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sebastien\\Desktop\\playground-react\\src\\apis\\api\\obj\\",
+        "projectPath": "C:\\Users\\Sebastien Deschamps\\0_WS\\playground-react\\src\\apis\\api\\api.csproj",
+        "packagesPath": "C:\\Users\\Sebastien Deschamps\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sebastien Deschamps\\0_WS\\playground-react\\src\\apis\\api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\sebastien\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sebastien Deschamps\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,6 +31,7 @@
         },
         "frameworks": {
           "netcoreapp2.1": {
+            "targetAlias": "netcoreapp2.1",
             "projectReferences": {}
           }
         },
@@ -40,6 +43,7 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
+          "targetAlias": "netcoreapp2.1",
           "dependencies": {
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",

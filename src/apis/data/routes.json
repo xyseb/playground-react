@@ -1,5 +1,7 @@
 {
     "/api/centres":"/centre",
     "/api/params":"/params",
-    "/api/params/:paramId":"/params/:paramId"
+    "/api/params/:paramId":"/params/:paramId",
+    "/api/users":"/users",
+    "/api/users/:userId":"/users/:userId"
 }

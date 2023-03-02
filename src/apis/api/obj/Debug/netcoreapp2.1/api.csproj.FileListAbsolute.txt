@@ -54,3 +54,17 @@ C:\Users\sebastien\Desktop\playground-react\src\apis\api\obj\Debug\netcoreapp2.1
 C:\Users\sebastien\Desktop\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.RazorTargetAssemblyInfo.cache
 C:\Users\sebastien\Desktop\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.dll
 C:\Users\sebastien\Desktop\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.pdb
+C:\Users\Sebastien Deschamps\0_WS\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.csproj.AssemblyReference.cache
+C:\Users\Sebastien Deschamps\0_WS\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.csproj.CoreCompileInputs.cache
+C:\Users\Sebastien Deschamps\0_WS\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.RazorAssemblyInfo.cache
+C:\Users\Sebastien Deschamps\0_WS\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.RazorAssemblyInfo.cs
+C:\Users\Sebastien Deschamps\0_WS\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.AssemblyInfoInputs.cache
+C:\Users\Sebastien Deschamps\0_WS\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.AssemblyInfo.cs
+C:\Users\Sebastien Deschamps\0_WS\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.dll
+C:\Users\Sebastien Deschamps\0_WS\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.pdb
+C:\Users\Sebastien Deschamps\0_WS\playground-react\src\apis\api\bin\Debug\netcoreapp2.1\api.deps.json
+C:\Users\Sebastien Deschamps\0_WS\playground-react\src\apis\api\bin\Debug\netcoreapp2.1\api.runtimeconfig.json
+C:\Users\Sebastien Deschamps\0_WS\playground-react\src\apis\api\bin\Debug\netcoreapp2.1\api.runtimeconfig.dev.json
+C:\Users\Sebastien Deschamps\0_WS\playground-react\src\apis\api\bin\Debug\netcoreapp2.1\api.dll
+C:\Users\Sebastien Deschamps\0_WS\playground-react\src\apis\api\bin\Debug\netcoreapp2.1\api.pdb
+C:\Users\Sebastien Deschamps\0_WS\playground-react\src\apis\api\obj\Debug\netcoreapp2.1\api.RazorTargetAssemblyInfo.cache
