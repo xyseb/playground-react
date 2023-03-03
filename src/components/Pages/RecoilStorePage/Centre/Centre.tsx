@@ -1,28 +1,76 @@
 import React, { useState, useEffect } from 'react';
 import './Centre.scss';
 
-import { RtkRootState } from '../../../../stores/rtk/RtkStore';
-import { useSelector, useDispatch } from 'react-redux'
-import { getNom, getParams } from './CentreSlice'
+import { atom, selector, useRecoilCallback, useRecoilState, useRecoilValue } from 'recoil';
+
+const loadingState = atom<boolean>({
+  key: 'CentreNameState', // unique ID (with respect to other atoms/selectors)
+  default: false, // default value (aka initial value)
+});
+const centreNameState = atom<string>({
+  key: 'CentreNameState', // unique ID (with respect to other atoms/selectors)
+  default: undefined, // default value (aka initial value)
+});
+const centreParamsState = atom<Array<Object>>({
+  key: 'CentreParamsState', // unique ID (with respect to other atoms/selectors)
+  default: undefined, // default value (aka initial value)
+});
+// const changeCentreName = useRecoilCallback(({snapshot, set}) => centreName => {
+//   snapshot.getLoadable(currentCentreNameQuery()); // prélit les informations utilisateur
+//   set(centreNameState, centreName); // change l'utilisateur courant pour commancer un nouveau rendu
+// });
+const currentCentreNameQuery = selector({
+  key: 'CurrentCentreName',
+  get: async ({get,getCallback}) => {
+    const response = await fetch('http://localhost:8080/centre')
+    .then(async response => {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return await response.json();
+    })
+    .then(data => getCallback(currentCentreNameQuery => ({set}) => set(data.name)))
+    .catch(error => console.log(error));
+  },
+  set: ({set}, newValue) => set(centreNameState, newValue => { return newValue })
+});
+
+const currentCentreParamsQuery = selector({
+  key: 'CurrentCentreParams',
+  get: async ({get,getCallback}) => {
+    const response = await fetch('http://localhost:8080/params')
+    .then(async response => {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return await response.json();
+    })
+    .then(data => getCallback(currentCentreParamsQuery => ({set}) => set(data.params)))
+    .catch(error => console.log(error));
+  },
+  set: ({set}, newValue) => set(centreParamsState, newValue => { return newValue })
+});
 
 function Centre() {
-  // const storeCentreNom: string|undefined = useSelector((state: RtkRootState) => state.centre.Nom);
-  // const storeCentreParams: {}|undefined = useSelector((state: RtkRootState) => state.centre.Params);
-  const storeCentre = useSelector((state: RtkRootState) => state.centre);
-  const dispatch = useDispatch();
+  // const [centreName, setCentreName] = useRecoilState(
+  //   centreNameState
+  // );
 
-  const [loading, setLoading] = useState(false);
+  
+  const centreName = useRecoilValue(currentCentreNameQuery);
+  const [centreParams, setCentreParams] = useRecoilState(centreParamsState);
+  const [loading, setLoading] = useRecoilState(loadingState);
 
-  const centreNameElement = (storeCentre.Nom === undefined)
+  const centreNameElement = (centreName === undefined)
         ? <h3 className='default'>State CentreContext.Nom = "undefined"</h3>
-        : <h3>State CentreContext.Nom = "{storeCentre.Nom}"</h3>;
+        : <h3>State CentreContext.Nom = "{centreName}"</h3>;
 
   let centreParamElement, centreNameElementChildren
-  if (storeCentre.Params === undefined) {
+  if (centreParams === undefined) {
     centreParamElement = <h3 className='default'>Paramètres de centre non chargés. Click le bouton 😀</h3>;
   }
   else {
-    centreNameElementChildren = Object.entries(storeCentre.Params).map((d) => <li>{d[0]+": "+d[1]}</li>);
+    centreNameElementChildren = Object.entries(centreParams).map((d) => <li key={d[0]}>{d[0]+": "+d[1]}</li>);
     centreParamElement = <ul>{centreNameElementChildren}</ul>;
   }
 

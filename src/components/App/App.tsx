@@ -29,6 +29,8 @@ import ZustandStorePage from '../Pages/ZustandStorePage/ZustandStorePage';
 import { Provider as JotaiProvider } from "jotai";
 import jotaiStore from '../../stores/jotai/jotaiStore'
 
+import { RecoilRoot } from 'recoil';
+
 const isDev = (process.env.NODE_ENV === 'development') ? true : false;
 const queryClient = new QueryClient({ 
   defaultOptions: {
@@ -62,6 +64,7 @@ function App() {
       <AppStateContextProvider>
       <Provider store={reduxStore}>
       <Provider store={rtkStore}>
+      <RecoilRoot>
       <JotaiProvider store={jotaiStore}>
         <CentreContextProvider>
         <section>
@@ -83,6 +86,7 @@ function App() {
         </section>    
         </CentreContextProvider>
       </JotaiProvider>
+      </RecoilRoot>
       </Provider>
       </Provider>
       </AppStateContextProvider>
