@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import './LoadingSpinner.scss';
 
-import { useRecoilState } from 'recoil'
+import { useRecoilValue } from 'recoil'
+import { loadingState } from '../Centre/Centre'
 
 
 function LoadingSpinner() {
-    const [loading] = useRecoilState(loadingState);
+    const loading = useRecoilValue(loadingState);
 
     return (
         <>
