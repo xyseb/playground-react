@@ -1,23 +1,55 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+
 
 export interface ICentre
 {
-    Nom?: string;
-    Params?: {};
+    name?: string;
+    params?: Array<Object>;
 };
 
-
 const initialState: ICentre = {
-  Nom: undefined,
-  Params: undefined
+  name: undefined,
+  params: undefined
 }
+
+let nameRequest: Promise<{ name: string }>;
+export const fetchName = createAsyncThunk("name/fetch", async () => {
+  if (!nameRequest) {
+    nameRequest = await fetch("http://localhost:8080/centre").then(async response => {
+      if (!response.ok) {
+          throw Error(response.statusText);
+      }
+      return await response.json();
+  })
+  .then(data => {console.log('RTKdata::name=>' + data.name); return data.name})
+  .catch(error => console.log(error));
+  }
+  return nameRequest;
+});
+
+let paramsRequest: Promise<{ params: Array<Object> }>;
+export const fetchParams = createAsyncThunk("params/fetch", async () => {
+  if (!paramsRequest) {
+    paramsRequest = fetch('http://localhost:8080/params')
+    .then(async response => {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return await response.json();
+    })
+    .then(data => {console.log('RTKdata::params=>' + data.params); return data.params})
+    .catch(error => console.log(error));
+  }
+  return paramsRequest;
+});
+
+
 
 export const centreSlice = createSlice({
   name: 'centre',
   initialState,
   reducers: {
-    getNom: (state) => {
+    setName: (state, action: PayloadAction<string>) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
@@ -37,49 +69,60 @@ export const centreSlice = createSlice({
     //     // console.log(centre);
     //     return state;
     //   //}
-        loadCentreName(state);
+//        loadCentreName(state);
+      state.name = action.payload
     },
-    getParams: (state) => {
+    setParams: (state, action: PayloadAction<Array<Object>>) => {
         // Redux Toolkit allows us to write "mutating" logic in reducers. It
         // doesn't actually mutate the state because it uses the Immer library,
         // which detects changes to a "draft state" and produces a brand new
         // immutable state based off those changes
         //const loadCentreName = async () => {
         //  await fetch('http://localhost:8080/centre')
-          fetch('http://localhost:8080/params')
-          .then(async response => {
-              if (!response.ok) {
-                  throw Error(response.statusText);
-              }
-              return response.json();
-          })
-          .then(data => state.Params = state.Params)
-          .catch(error => console.log(error));
+//          fetch('http://localhost:8080/params')
+//          .then(async response => {
+//              if (!response.ok) {
+//                  throw Error(response.statusText);
+//              }
+//              return response.json();
+//          })
+//          .then(data => state.Params = state.Params)
+//          .catch(error => console.log(error));
           // console.log('centre from getNom');
           // console.log(centre);
-          return state;
+//          return state;
           //}
+        state.params = action.payload
       }
+    },
+    extraReducers: (builder) => {
+      builder.addCase(fetchName.fulfilled, (state, { payload }) => {
+        state.name = payload.name
+      });
+      builder.addCase(fetchParams.fulfilled, (state, { payload }) => {
+        state.params = payload.params
+      });
     },
 })
 
-const loadCentreName = async (state: any) => {
-    await fetch('http://localhost:8080/centre')
-    .then(async response => {
-        if (!response.ok) {
-            throw Error(response.statusText);
-        }
-        return await response.json();
-    })
-    .then(data => state.Nom = data.name)
-    .catch(error => console.log(error));
-      // console.log('centre from getNom');
-      // console.log(centre);
-}
+// const loadCentreName = async (state: any) => {
+//     await fetch('http://localhost:8080/centre')
+//     .then(async response => {
+//         if (!response.ok) {
+//             throw Error(response.statusText);
+//         }
+//         return await response.json();
+//     })
+//     .then(data => state.Nom = data.name)
+//     .catch(error => console.log(error));
+//       // console.log('centre from getNom');
+//       // console.log(centre);
+// }
 
 
 // Action creators are generated for each case reducer function
-export const { getNom, getParams } = centreSlice.actions
+export const { setName, setParams } = centreSlice.actions
+
 
 // export const epics = {
 //     asyncGetNom: (action$, state$, action) =>

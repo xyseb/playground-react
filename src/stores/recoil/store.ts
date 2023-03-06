@@ -1,7 +1,7 @@
 import { atom, atomFamily } from 'recoil';
 
 export const loadingState = atom<boolean>({
-    key: 'xCentreNameState', // unique ID (with respect to other atoms/selectors)
+    key: 'xLoadingState', // unique ID (with respect to other atoms/selectors)
     default: false, // default value (aka initial value)
 });
 export const centreNameState = atom<string>({

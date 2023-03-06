@@ -36,10 +36,10 @@ export default class HomePageClass extends React.PureComponent<IHomePageClassOwn
 
         const storeCentre = useSelector((state: RtkRootState) => state.centre)
         ///  const storeCentreParams = useSelector((state: RtkRootState) => state.centre.Params)
-        const rtkStoreCentreNameElement = (storeCentre.Nom === undefined)
+        const rtkStoreCentreNameElement = (storeCentre.name === undefined)
               ? <h3 className='default'>State RtkStore.Nom = "undefined"</h3>
-              : <h3>State de RtkStore.Nom = "{storeCentre.Nom}"</h3>;
-        const rtkStoreCentreParamsElement = (storeCentre.Params === undefined)
+              : <h3>State de RtkStore.Nom = "{storeCentre.name}"</h3>;
+        const rtkStoreCentreParamsElement = (storeCentre.params === undefined)
               ? <h3 className='default'>State RtkStore.Params = "undefined"</h3>
               : <h3>State RtkStore.Params = "chargés"</h3>;
 

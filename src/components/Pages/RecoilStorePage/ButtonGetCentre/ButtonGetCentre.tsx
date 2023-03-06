@@ -6,7 +6,7 @@ import { centreParamsState, currentCentreParamsQueryState, loadingState } from '
 
 function ButtonGetCentre() {
   const setCentreParams = useSetRecoilState(centreParamsState);
-  const query = useSetRecoilState(currentCentreParamsQueryState)
+//  const query = useSetRecoilState(currentCentreParamsQueryState)
   console.log('Centre::Button::setCentreParams');
   console.log(setCentreParams);
   
@@ -15,8 +15,17 @@ function ButtonGetCentre() {
   function handleClick () {
     console.log('clicked');
     setLoading(true)
+    const response = fetch('http://localhost:8080/params')
+    .then(async response => {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return await response.json();
+    })
+    .then(data => setCentreParams(data.params))
+    .catch(error => console.log(error));
 //    setCentreParams(s => ({...s, query}))    
-    query(undefined)    
+//    query(undefined)    
     setTimeout(() => setLoading(false), 2000);
   }
 

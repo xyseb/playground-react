@@ -4,34 +4,32 @@ import './Centre.scss';
 import { RtkRootState } from '../../../../stores/rtk/RtkStore';
 import { useSelector, useDispatch } from 'react-redux'
 import { getNom, getParams } from './CentreSlice'
+import { useApplicationState } from '../../../../stores/zustand/store';
 
 function Centre() {
-  // const storeCentreNom: string|undefined = useSelector((state: RtkRootState) => state.centre.Nom);
-  // const storeCentreParams: {}|undefined = useSelector((state: RtkRootState) => state.centre.Params);
-  const storeCentre = useSelector((state: RtkRootState) => state.centre);
-  const dispatch = useDispatch();
+  const { name, params } = useApplicationState();
 
   const [loading, setLoading] = useState(false);
 
-  const centreNameElement = (storeCentre.Nom === undefined)
+  const centreNameElement = (name === undefined)
         ? <h3 className='default'>State CentreContext.Nom = "undefined"</h3>
-        : <h3>State CentreContext.Nom = "{storeCentre.Nom}"</h3>;
+        : <h3>State CentreContext.Nom = "{name}"</h3>;
 
   let centreParamElement, centreNameElementChildren
-  if (storeCentre.Params === undefined) {
+  if (params === undefined) {
     centreParamElement = <h3 className='default'>Paramètres de centre non chargés. Click le bouton 😀</h3>;
   }
   else {
-    centreNameElementChildren = Object.entries(storeCentre.Params).map((d) => <li>{d[0]+": "+d[1]}</li>);
+    centreNameElementChildren = Object.entries(params).map((d) => <li>{d[0]+": "+d[1]}</li>);
     centreParamElement = <ul>{centreNameElementChildren}</ul>;
   }
 
   useEffect(() => {
     console.log('in useEffect');
-    if (storeCentre.Nom === undefined)
+    if (name === undefined)
     {
       setLoading(true);
-      dispatch(getNom());
+      //dispatch(getNom());
       setTimeout(() => setLoading(false), 2000);
     }
   }, []);

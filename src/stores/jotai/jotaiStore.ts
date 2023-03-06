@@ -6,17 +6,20 @@ const loadingAtom = atom(false)
 jotaiStore.set(loadingAtom, !loadingAtom)
 const unsub = jotaiStore.sub(loadingAtom, () => {
   console.log('countAtom value is changed to', jotaiStore.get(loadingAtom))
-})
+});
+
 const centreNameAtom = atom('')
 jotaiStore.set(centreNameAtom, 'undefined')
 const unsub2 = jotaiStore.sub(centreNameAtom, () => {
   console.log('countAtom value is changed to', jotaiStore.get(centreNameAtom))
-})
+});
+
 const centreParamsAtom = atom(undefined)
 jotaiStore.set(centreParamsAtom, undefined)
 const unsub3 = jotaiStore.sub(loadingAtom, () => {
   console.log('countAtom value is changed to', jotaiStore.get(centreParamsAtom))
-})
+});
+
 // unsub() to unsubscribe
 
 // const Root = () => (

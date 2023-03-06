@@ -1,13 +1,19 @@
 import React, { useState, useContext } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RtkRootState } from '../../../../stores/rtk/RtkStore';
+import { setParams } from '../Centre/CentreSlice';
 import './ButtonGetCentre.scss';
 
-import { ICentre, CentreContext, CentreContextType } from '../../../../contexts/CentreContextProvider';
 
 function ButtonGetCentre() {
-  const {loadCentreParams} = useContext(CentreContext) as CentreContextType;
+//  const storeCentre = useSelector((state: RtkRootState) => state.centre);
+  const storeCentre = useSelector((state: RtkRootState) => state.centre);
+  const dispatch = useDispatch();
+
+  function handleClick ():void { dispatch(setParams) }
 
   return (
-    <button className="button-getcentre" onClick={loadCentreParams}>Get Centre Params</button>
+    <button className="button-getcentre" onClick={handleClick}>Get Centre Params</button>
   );
 }
 

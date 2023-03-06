@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import { useQuery } from 'react-query';
 import './Centre.scss';
 
 import useSWR, { useSWRConfig } from 'swr';
@@ -68,11 +67,6 @@ function Centre() {
     // if (centre.Name === undefined)
     // {
     //   setLoading(true);
-
-    //   const { isLoading, error, data } = useQuery('repoData', () =>
-    //     fetch('https://localhost:8080/centre').then(res =>
-    //       res.json()
-    //   ))
 
     //   setTimeout(() => setLoading(false), 2000);
     // }

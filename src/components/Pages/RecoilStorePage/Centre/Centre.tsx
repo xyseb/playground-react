@@ -8,7 +8,7 @@ export const loadingState = atom<boolean>({
   key: 'loadingState', // unique ID (with respect to other atoms/selectors)
   default: false, // default value (aka initial value)
 });
-const centreNameState = atom<string | undefined>({
+export const centreNameState = atom<string | undefined>({
   key: 'CentreNameState', // unique ID (with respect to other atoms/selectors)
   default: undefined, // default value (aka initial value)
 });

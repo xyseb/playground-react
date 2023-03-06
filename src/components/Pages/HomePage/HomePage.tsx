@@ -7,6 +7,9 @@ import { CentreContext, CentreContextType } from '../../../contexts/CentreContex
 // App context
 import { AppStateContextContext, ICentre } from '../../../contexts/AppStateContextProvider';
 
+// react-query
+import { useQuery } from 'react-query';
+
 //redux
 import { useSelector, useStore } from 'react-redux'
 
@@ -21,6 +24,11 @@ import { ReduxRootState } from '../../../stores/redux/ReduxStore';
 // jotai
 import { useAtom } from 'jotai';
 import { newCentreNameAtom, newCentreParamAtom } from '../../../stores/jotai/jotaiStore';
+
+// recoil
+import { useRecoilValue } from 'recoil';
+import { centreNameState, centreParamsState } from '../RecoilStorePage/Centre/Centre';
+
 
 function HomePage() {
 
@@ -90,13 +98,24 @@ function HomePage() {
   // console.log('Homepage cache rq');
   // console.log(cacheData);
   // }, []);
+  const { isLoading: loadingCentre, error: errorCentre, data: rqstoreCentre } = useQuery(
+    'centre',
+    () => fetch('http://localhost:8080/centre').then(res => res.json()),
+    { staleTime: 60000, }
+  );
 
-  const rqstoreCentre = useSelector((state: RtkRootState) => state.centre)
+  const { isLoading: loadingParams, error: errorParams, data: rqstoreCentreParam, isFetching: isCentreFetching,  refetch } = useQuery('centreParams', () =>
+  fetch('http://localhost:8080/params').then(res =>
+    res.json()
+  ), { enabled: false });
+  //  const rqstoreCentre = useSelector((state: RtkRootState) => state.centre)
 ///  const storeCentreParams = useSelector((state: RtkRootState) => state.centre.Params)
-  const rqStoreCentreNameElement = (rqstoreCentre.Nom === undefined)
+  const rqStoreCentreNameElement = (rqstoreCentre === undefined || rqstoreCentre.name === undefined)
         ? <h5 className='default'>Cache de CentreName = "undefined"</h5>
-        : <h5>Cache de CentreName = "{rqstoreCentre.Nom}"</h5>;
-  const rqStoreCentreParamsElement = (rqstoreCentre.Params === undefined)
+        : <h5>Cache de CentreName = "{rqstoreCentre.name}"</h5>;
+
+
+  const rqStoreCentreParamsElement = (rqstoreCentreParam === undefined || rqstoreCentreParam.Params === undefined)
         ? <h5 className='default'>Cache de CentreParams = "undefined"</h5>
         : <h5>Cache de CentreParams = "chargés"</h5>;
 
@@ -166,22 +185,23 @@ const reduxStoreCentreParamsElement = (centreParams[0].params.length <= 1)
   // RTK
   const storeCentre = useSelector((state: RtkRootState) => state.centre)
 ///  const storeCentreParams = useSelector((state: RtkRootState) => state.centre.Params)
-  const rtkStoreCentreNameElement = (storeCentre.Nom === undefined)
+  const rtkStoreCentreNameElement = (storeCentre.name === undefined)
         ? <h5 className='default'>CentreName = "undefined"</h5>
-        : <h5>CentreName = "{storeCentre.Nom}"</h5>;
-  const rtkStoreCentreParamsElement = (storeCentre.Params === undefined)
+        : <h5>CentreName = "{storeCentre.name}"</h5>;
+  const rtkStoreCentreParamsElement = (storeCentre.params === undefined)
         ? <h5 className='default'>CentreParams = "undefined"</h5>
         : <h5>CentreParams = "chargés"</h5>;
 
 
 
   // Recoil
-  const recoilstoreCentre = useSelector((state: RtkRootState) => state.centre)
-///  const storeCentreParams = useSelector((state: RtkRootState) => state.centre.Params)
-  const recoilStoreCentreNameElement = (recoilstoreCentre.Nom === undefined)
+  const recoilAtomCentreName = useRecoilValue(centreNameState);
+  const recoilAtomCentreParams = useRecoilValue(centreParamsState);
+  
+  const recoilStoreCentreNameElement = (recoilAtomCentreName === undefined)
         ? <h5 className='default'>CentreName = "undefined"</h5>
-        : <h5>CentreName = "{recoilstoreCentre.Nom}"</h5>;
-  const recoilStoreCentreParamsElement = (recoilstoreCentre.Params === undefined)
+        : <h5>CentreName = "{recoilAtomCentreName}"</h5>;
+  const recoilStoreCentreParamsElement = (recoilAtomCentreParams === undefined)
         ? <h5 className='default'>CentreParams = "undefined"</h5>
         : <h5>CentreParams = "chargés"</h5>;
 
@@ -201,7 +221,8 @@ const reduxStoreCentreParamsElement = (centreParams[0].params.length <= 1)
 
 
   // Zustand
-  const zstoreCentre = useSelector((state: RtkRootState) => state.centre)
+  const zstoreCentre = {Nom: undefined, Params: undefined}
+//  const zstoreCentre = useSelector((state: RtkRootState) => state.centre)
 ///  const storeCentreParams = useSelector((state: RtkRootState) => state.centre.Params)
   const zStoreCentreNameElement = (zstoreCentre.Nom === undefined)
         ? <h5 className='default'>CentreName = "undefined"</h5>

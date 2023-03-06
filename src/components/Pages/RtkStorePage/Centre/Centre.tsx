@@ -1,37 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import './Centre.scss';
 
-import { RtkRootState } from '../../../../stores/rtk/RtkStore';
+import { RtkRootState, selectCentre, selectName, selectParams } from '../../../../stores/rtk/RtkStore';
 import { useSelector, useDispatch } from 'react-redux'
-import { getNom, getParams } from './CentreSlice'
+import { setName, setParams } from './CentreSlice'
 
 function Centre() {
-  // const storeCentreNom: string|undefined = useSelector((state: RtkRootState) => state.centre.Nom);
-  // const storeCentreParams: {}|undefined = useSelector((state: RtkRootState) => state.centre.Params);
-  const storeCentre = useSelector((state: RtkRootState) => state.centre);
+//  const storeCentre = useSelector((state: RtkRootState) => state.centre);
+  const storeCentre = useSelector(selectCentre);
+  // const storeCentreName = useSelector(selectName);
+  // const storeCentreParams = useSelector(selectParams);
   const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(false);
 
-  const centreNameElement = (storeCentre.Nom === undefined)
+  const centreNameElement = (storeCentre.name === undefined)
         ? <h3 className='default'>State CentreContext.Nom = "undefined"</h3>
-        : <h3>State CentreContext.Nom = "{storeCentre.Nom}"</h3>;
+        : <h3>State CentreContext.Nom = "{storeCentre.name}"</h3>;
 
   let centreParamElement, centreNameElementChildren
-  if (storeCentre.Params === undefined) {
+  if (storeCentre.params === undefined) {
     centreParamElement = <h3 className='default'>Paramètres de centre non chargés. Click le bouton 😀</h3>;
   }
   else {
-    centreNameElementChildren = Object.entries(storeCentre.Params).map((d) => <li>{d[0]+": "+d[1]}</li>);
+    centreNameElementChildren = Object.entries(storeCentre.params).map((p) => <li key={p[0]}>{p[0]+": "+p[1]}</li>);
     centreParamElement = <ul>{centreNameElementChildren}</ul>;
   }
 
   useEffect(() => {
-    console.log('in useEffect');
-    if (storeCentre.Nom === undefined)
+    console.log('in rtk::centre::useEffect');
+    if (storeCentre.name === undefined)
     {
       setLoading(true);
-      dispatch(getNom());
+      dispatch(setName);
       setTimeout(() => setLoading(false), 2000);
     }
   }, []);
