@@ -29,6 +29,9 @@ import { newCentreNameAtom, newCentreParamAtom } from '../../../stores/jotai/jot
 import { useRecoilValue } from 'recoil';
 import { centreNameState, centreParamsState } from '../RecoilStorePage/Centre/Centre';
 
+// hook
+import { useCentre } from '../../../hooks/useCentre';
+
 
 function HomePage() {
 
@@ -41,6 +44,16 @@ function HomePage() {
   const centreParamsElement = (centre.Params === undefined)
         ? <h5 className='default'>CentreParams = "undefined"</h5>
         : <h5>CentreParams = "chargés"</h5>;
+
+  // Hook
+  const { hookCentreName, hookCentreParams } = useCentre();
+
+  const hookCentreNameElement = (hookCentreName === undefined)
+        ? <h5 className='default'>HookCentreName = "undefined"</h5>
+        : <h5>HookCentreName = "{hookCentreName}"</h5>;
+  const hookCentreParamsElement = (hookCentreParams === undefined)
+        ? <h5 className='default'>HookCentreParams = "undefined"</h5>
+        : <h5>HookCentreParams = "chargés"</h5>;
 
 
   // SWR
@@ -243,6 +256,11 @@ const reduxStoreCentreParamsElement = (centreParams[0].params.length <= 1)
                 <h3>CentreContext</h3>
                 {centreNameElement}
                 {centreParamsElement}
+            </div>
+            <div>
+                <h3>hookCentreContext</h3>
+                {hookCentreNameElement}
+                {hookCentreParamsElement}
             </div>
             <div>
                 <h3>RQ Cache Store</h3>

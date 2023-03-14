@@ -7,6 +7,7 @@ import { Routes, Route, NavLink } from 'react-router-dom';
 
 import HomePage from '../Pages/HomePage/HomePage';
 import CentreContextPage from '../Pages/CentreContextPage/CentreContextPage';
+import CentreHookPage from '../Pages/CentreHookPage/CentreHookPage';
 import NotFoundPage from '../Pages/NotFoundPage/NotFoundPage';
 import ReduxStorePage from '../Pages/ReduxStorePage/ReduxStorePage';
 import RtkStorePage from '../Pages/RtkStorePage/RtkStorePage';
@@ -48,6 +49,7 @@ function App() {
         <nav>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/home"><span>HOME</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/ctx"><span>CTX</span></NavLink>
+          <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/hook"><span>HOOK</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/rq"><span>RQ</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/swr"><span>SWR</span></NavLink>
           <NavLink className={({ isActive }) => isActive ? 'nav is-active' : 'nav' } to="/redux"><span>REDUX</span></NavLink>
@@ -73,6 +75,7 @@ function App() {
               <Route path="/home" element={<HomePage/>}/>
             </Route>
             <Route path="/ctx" element={<CentreContextPage/>}/>
+            <Route path="/hook" element={<CentreHookPage/>}/>
             <Route path="/rq" element={<ReactQueryPage/>}/>
             <Route path="/swr" element={<SwrPage/>}/>
             <Route path="/redux" element={<ReduxStorePage/>}/>
